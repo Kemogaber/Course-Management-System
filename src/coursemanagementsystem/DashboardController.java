@@ -132,10 +132,13 @@ public class DashboardController implements Initializable {
     Course selecteditem=tableview1.getSelectionModel().getSelectedItem();
     total-=selecteditem.getCH();
      for (int i=0;i<courses.length;i++){
-      if (tableview1.getSelectionModel().getSelectedItem().getCoursename().equals( courses[i].getCoursename())){
+         if (tableview1.getItems().size()!=0){
+         if (tableview1.getSelectionModel().getSelectedItem().getCoursename().equals( courses[i].getCoursename())){
        num=num-(courses[i].getCH()*courses[i].getGpa());
        double totGpa=num/total;
+       totGpa=(total==0 ? 0.00 : totGpa );
        TotalGpaBtn.setText(String.format("%.2f",totGpa));
+         }
       } 
     }
     combo2.getItems().add(tableview1.getSelectionModel().getSelectedItem().getCoursename());

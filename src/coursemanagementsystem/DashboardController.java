@@ -135,6 +135,7 @@ public class DashboardController implements Initializable {
       if (tableview1.getSelectionModel().getSelectedItem().getCoursename().equals( courses[i].getCoursename())){
        num=num-(courses[i].getCH()*courses[i].getGpa());
        double totGpa=num/total;
+       totGpa=total<=0?0.00:totGpa;
        TotalGpaBtn.setText(String.format("%.2f",totGpa));
       } 
     }

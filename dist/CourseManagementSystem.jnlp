@@ -8,7 +8,11 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+<<<<<<< HEAD
     <jar href="CourseManagementSystem.jar" size="14698" download="eager" />
+=======
+    <jar href="CourseManagementSystem.jar" size="14716" download="eager" />
+>>>>>>> afcb2363d3d831ae947c8553ef0a6e8cbc6520c6
     <jar href="lib\ant-javafx.jar" size="1535762" download="eager" />
     <jar href="lib\dt.jar" size="163083" download="eager" />
     <jar href="lib\fontawesomefx-8.2.jar" size="180341" download="eager" />

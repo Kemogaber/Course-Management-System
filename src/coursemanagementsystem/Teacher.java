@@ -12,6 +12,7 @@ public class Teacher extends PersonalInformation {
     
     private String jobTitle;
     private float salary;
+    // weekly hours 
 
     public Teacher(String jobTitle, float salary) {
         this.jobTitle = jobTitle;

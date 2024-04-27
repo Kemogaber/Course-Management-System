@@ -1,10 +1,17 @@
 package coursemanagementsystem;
 
+import coursemanagementsystem.courses.Department;
+
 public class Tests {
     public static void main(String[] args){
-        Student s1 = new Student("Ahmed Said", 2101546, "hello", "Junior", "CSE");
-        Department CSE = new Department("CSE");
-        Teacher t1 = new Teacher("Nesma Rezk", 123, "teacher", CSE, 1000);
-        System.out.println(t1.toString());
+        System.out.println(Storage.said.toString());
+        try {
+            Storage.said.addCourse(Storage.said.department.getCourses().get(0));
+            Storage.said.addCourse(Storage.said.department.getCourses().get(1));
+            Storage.embeddedCourse.displayStudents();
+        } catch (Exception e) {
+            System.out.println("Exception: " + e.getMessage());
+        }
+        
     }
 }

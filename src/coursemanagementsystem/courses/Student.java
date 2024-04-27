@@ -81,6 +81,18 @@ public class Student extends PersonalInformation{
         throw new Exception("Student hasn't registered this course.");
     }
 
+    public double getGPA(){
+        double points = 0;
+        int creditHours = 0;
+        for (CourseMark courseMark : courseMarks) {
+            if (courseMark.isFinished()) {
+                points += courseMark.getGradePoints() * courseMark.getCourse().getCH();
+                creditHours += courseMark.getCourse().getCH();
+            }
+        }
+        return points/creditHours;
+    }
+
     @Override
     public String toString() {
         return super.toString() + "\n" + "Year: " + year + "\n--------------------";
@@ -102,6 +114,7 @@ public class Student extends PersonalInformation{
         else {
             courseMarks.add(new CourseMark(course));
             this.updateAvaialableCourses();
+            course.addStudent(this);
         }
     }
 
@@ -117,6 +130,7 @@ public class Student extends PersonalInformation{
             if (courseMark.getCourse() == course) {
                 courseMarks.remove(courseMark);
                 this.updateAvaialableCourses();
+                course.removeStudent(this);
                 break;
             }
         }

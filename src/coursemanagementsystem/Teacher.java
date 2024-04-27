@@ -4,7 +4,11 @@
  */
 package coursemanagementsystem;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import coursemanagementsystem.courses.Course;
+import coursemanagementsystem.courses.Department;
 
 /**
  *
@@ -13,7 +17,7 @@ import java.util.List;
 public class Teacher extends PersonalInformation {
     
     private float salary;
-    private List<Course> courses;
+    private List<Course> courses = new ArrayList<Course>();
 
     public Teacher(String name, int id, String password, Department department, float salary) {
         super(name, id, password, department);

@@ -4,6 +4,9 @@
  */
 package coursemanagementsystem;
 
+import coursemanagementsystem.courses.Course;
+import coursemanagementsystem.courses.Department;
+
 /**
  *
  * @author Fares Sultan

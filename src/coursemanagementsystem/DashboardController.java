@@ -133,7 +133,7 @@ public class DashboardController implements Initializable {
     total-=selecteditem.getCH();
      for (int i=0;i<courses.length;i++){
          if (tableview1.getItems().size()!=0){
-         if (tableview1.getSelectionModel().getSelectedItem().getCoursename().equals( courses[i].getCoursename())){
+         if (tableview1.getSelectionModel().getSelectedItem().getCourseName().equals( courses[i].getCourseName())){
        num=num-(courses[i].getCH()*courses[i].getGpa());
        double totGpa=num/total;
 <<<<<<< HEAD
@@ -154,7 +154,7 @@ public class DashboardController implements Initializable {
      @FXML
     void AddCourse(ActionEvent event) {
       for (int i=0;i<courses.length;i++){
-      if (combo2.getValue().equals( courses[i].getCoursename())){
+      if (combo2.getValue().equals( courses[i].getCourseName())){
         tableview1.getItems().add(courses[i]);
         combo2.getItems().remove(combo2.getValue());
         
@@ -186,7 +186,7 @@ public class DashboardController implements Initializable {
                    public void changed(ObservableValue observable,Object oldValue, Object newValue)
                        {
          for (int i=0;i<combo1.getItems().size();i++){
-      if ((newValue).equals( (Object) courses[i].getCoursename())){
+      if ((newValue).equals( (Object) courses[i].getCourseName())){
        GpaBtn.setText(String.format("%.2f",courses[i].getGpa()));
        CHBtn.setText(String.valueOf(courses[i].getCH()));
             }

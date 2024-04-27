@@ -10,35 +10,24 @@ package coursemanagementsystem;
  */
 public class Student extends PersonalInformation{
     
-    private String level;
+    private String year;
     private float gpa;
     // course marks 
 
-    public Student(String level) {
-        this.level = level;
+    public Student(String name, int id, String passWord, String year) {
+        super(name, id, passWord);
+        this.year = year;
     }
 
-    public String getLevel() {
-        return level;
+    public String getYear() {
+        return year;
     }
 
-    public float getGpa() {
-        return gpa;
+
+    @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        return super.toString();
     }
-    
-
-    public void setLevel(String level) {
-        this.level = level;
-    }
-
-    public void setGpa(float gpa) {
-        this.gpa = gpa;
-    }
-    
-    protected void CalculateGpa(){
-
-
-    }
-
     
 }

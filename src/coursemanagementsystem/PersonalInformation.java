@@ -12,42 +12,57 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.Period;
 
-
-
-
 public class PersonalInformation {
-   
-   protected String name;
-   protected String dateOfBirth;
-   protected int id;
-   protected int numberOfEnrolledCourses;
-   protected String department;
-   protected String password;
+
+    protected String name;
+    protected int id;
+    protected String password;
+
+    protected String dateOfBirth;
+    protected int numberOfEnrolledCourses;
+    protected String department;
     
-   
-   public PersonalInformation() {
-   }
-   
-   // Constructor to set the non-changeable information of the person 
-    public PersonalInformation(String name, String department, int id) {
+
+    public PersonalInformation() {
+    }
+
+    // Constructor to set the non-changeable information of the person
+    public PersonalInformation(String name, int id, String password) {
         this.name = name;
-        this.department = department;
         this.id = id;
+        this.password = password;
     }
 
-    protected void setDateOfBirth(String dateOfBirth) {
-        if (dateOfBirth == null || dateOfBirth.isEmpty() || !dateOfBirth.matches("\\d{2}/\\d{2}/\\d{4}")) {
-            throw new IllegalArgumentException("Invalid dateOfBirth format. Please use DD/MM/YYYY");
-        }
-        this.dateOfBirth = dateOfBirth;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setDepartment(String department) { // adding the option to transfer from one department to another
-        this.department = department;
+    public String getName() {
+        return name;
     }
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+    public String getDepartment() {
+        return department;
     }
 
     public int calculateAge() {
@@ -60,9 +75,9 @@ public class PersonalInformation {
     @Override
     public String toString() {
         return """
-               PersonalInformation:
-               Name: """ + name + "\nId: " + id + "\nDepartment: " + department + "\nPassword: " + password + "\n Date of brith: " + dateOfBirth + "\n Age: " + calculateAge() + "\n--------------------";
+                PersonalInformation:
+                Name: """ + name + "\nId: " + id + "\nDepartment: " + department + "\nPassword: " + password
+                + "\n Date of brith: " + dateOfBirth + "\n Age: " + calculateAge() + "\n--------------------";
     }
 
-    
 }

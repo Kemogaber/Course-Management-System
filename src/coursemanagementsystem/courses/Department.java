@@ -1,4 +1,4 @@
-package coursemanagementsystem;
+package coursemanagementsystem.courses;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ public class Department {
     private String departementName;
     private List<Course> courses;
 
-    Department(String departementName){
+    public Department(String departementName){
         this.departementName = departementName;
     }
 
@@ -18,4 +18,8 @@ public class Department {
         return departementName;
     }
     
+    void addCourse(Course course){
+        
+    }
+
 }

@@ -1,4 +1,4 @@
-package coursemanagementsystem;
+package coursemanagementsystem.courses;
 
 public class Course {
     private String courseName;

@@ -31,6 +31,14 @@ public class Teacher extends PersonalInformation {
     public void setSalary(float salary) {
         this.salary = salary;
     }
+
+    @Override
+    public void displayCourses(){
+        System.out.println(name + "'s courses: ");
+        for (Course course: courses) {
+            System.out.println(course.toString());
+        }
+    }
     
 
     @Override

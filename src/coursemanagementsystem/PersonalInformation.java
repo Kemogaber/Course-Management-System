@@ -69,6 +69,8 @@ public abstract class PersonalInformation {
 
     public abstract void dropCourse(Course course) throws Exception;
 
+    public abstract void displayCourses();
+
     @Override
     public String toString() {
         return """

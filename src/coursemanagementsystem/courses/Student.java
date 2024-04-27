@@ -39,7 +39,16 @@ public class Student extends PersonalInformation{
     }
 
     public List<Course> getAvailableCourses() {
+        this.updateAvaialableCourses();
         return availableCourses;
+    }
+
+    public void displayAvailableCourses(){
+        this.updateAvaialableCourses();
+        System.out.println("Courses available for " + name + ":");
+        for (Course course : availableCourses) {
+            System.out.println(course.toString());
+        }
     }
 
     public boolean hasCourse(Course course){
@@ -61,6 +70,7 @@ public class Student extends PersonalInformation{
         }
     }
 
+    @Override
     public void displayCourses(){
         System.out.println(name + "'s courses: ");
         for (CourseMark courseMark : courseMarks) {

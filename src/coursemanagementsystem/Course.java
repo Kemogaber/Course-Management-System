@@ -1,60 +1,38 @@
 package coursemanagementsystem;
 
-import java.util.stream.Stream;
-
 public class Course {
-    private String coursename;
-    private int CH;
+    private String courseName;
+    private Department department;
     private String code;
-    private double gpa;
-
-    public double getGpa() {
-        return gpa;
+    private int CH;
+    
+    Course(String courseName, Department department, String code, int CH){
+        this.courseName = courseName;
+        this.department = department;
+        this.code = code;
+        this.CH = CH;
     }
 
-    public void setGpa(double gpa) {
-        this.gpa = gpa;
-    }
-
-    public String getCoursename() {
-        return coursename;
-    }
-
-    public void setCoursename(String coursename) {
-        this.coursename = coursename;
+    public String getCourseName() {
+        return courseName;
     }
 
     public int getCH() {
         return CH;
     }
 
-    public void setCH(int CH) {
-        this.CH = CH;
-    }
-
     public String getCode() {
         return code;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public Department getDepartment() {
+        return department;
     }
-
-    Course() {
-        this("", 0, "", 0.00);
-    }
-
-    Course(String coursename, int CH, String code, double gpa) {
-        this.coursename = coursename;
-        this.CH = CH;
-        this.code = code;
-        this.gpa = gpa;
-    }
-
+    
     @Override
     public boolean equals(Object o) {
         Course k = (Course) o;
-        if (this.getCH() == k.getCH() && this.getCode() == k.getCode() && this.getCoursename() == k.getCoursename())
+        if (this.getCH() == k.getCH() && this.getCode() == k.getCode() && this.getCourseName() == k.getCourseName())
             return true;
         return false;
     }

@@ -87,7 +87,7 @@ public class DashboardController implements Initializable {
     private Label TotalGpaBtn;
 
     static List<Course> AvailableCourses= FXMLDocumentController.LoggedInStudent.getAvailableCourses();
-    static List<Course> FinishedCourses= FXMLDocumentController.LoggedInStudent.getCourseMark();
+    static List<CourseMark> FinishedCourses= FXMLDocumentController.LoggedInStudent.getCourseMarks();
     ObservableList<Course> list = FXCollections.observableArrayList();
     double total = 0;
     double num;
@@ -131,9 +131,9 @@ public class DashboardController implements Initializable {
 
     @FXML
     void DropCourse(ActionEvent event) {
-        Course selecteditem = tableview1.getSelectionModel().getSelectedItem();
+        /* Course selecteditem = tableview1.getSelectionModel().getSelectedItem();
         total -= selecteditem.getCH();
-        for (int i = 0; i < courses.length; i++) {
+        for (int i = 0; i < AvailableCourses.size(); i++) {
             if (tableview1.getItems().size() != 0) {
                 if (tableview1.getSelectionModel().getSelectedItem().getCourseName().equals(courses[i].getCourseName())) {
                     num = num - (courses[i].getCH() * courses[i].getGpa());
@@ -147,21 +147,15 @@ public class DashboardController implements Initializable {
         combo2.getItems().add(tableview1.getSelectionModel().getSelectedItem().getCoursename());
         tableview1.getItems().remove(selecteditem);
         CHview.setText(String.valueOf(total));
-
+*/
     }
 
     @FXML
     void AddCourse(ActionEvent event) {
-        for (int i = 0; i < AvailableCourses.length; i++) {
-            if (combo2.getValue().equals(AvailableCourses[i].)) {
-                tableview1.getItems().add(courses[i]);
+        for (int i = 0; i < AvailableCourses.size(); i++) {
+            if (combo2.getValue().equals(AvailableCourses.get(i).getCourseName())) {
+                tableview1.getItems().add(AvailableCourses.get(i));
                 combo2.getItems().remove(combo2.getValue());
-
-                total += courses[i].getCH();
-                CHview.setText(String.valueOf(total));
-                num += (courses[i].getCH() * courses[i].getGpa());
-                double totGpa = num / total;
-                TotalGpaBtn.setText(String.format("%.2f", totGpa));
             }
         }
 
@@ -169,18 +163,13 @@ public class DashboardController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        String[] Courses = new String[6];
 
-        for (int i = 0; i < Storage.finishedCourses.length; i++) {
-            Courses[i] = Storage.finishedCourses[i].getCourseName();
-        }
+        combo1.setValue(FinishedCourses.get(0).getCourse().getCourseName());
+        combo1.getItems().addAll(FXMLDocumentController.LoggedInStudent.getFinishedCourseStrings());
+        combo2.setValue(AvailableCourses.get(0).getCourseName());
+        combo2.getItems().addAll(FXMLDocumentController.LoggedInStudent.getAvailableCourseStrings());
 
-        combo1.setValue(Courses[0]);
-        combo1.getItems().addAll(Courses);
-        combo2.setValue(Courses[0]);
-        combo2.getItems().addAll(Courses);
-
-        CourseNameColumn.setCellValueFactory(new PropertyValueFactory<Course, String>("coursename"));
+        CourseNameColumn.setCellValueFactory(new PropertyValueFactory<Course, String>("courseName"));
         CHColumn.setCellValueFactory(new PropertyValueFactory<Course, Integer>("CH"));
         CodeColumn.setCellValueFactory(new PropertyValueFactory<Course, String>("code"));
 
@@ -190,9 +179,9 @@ public class DashboardController implements Initializable {
             @Override
             public void changed(ObservableValue observable, Object oldValue, Object newValue) {
                 for (int i = 0; i < combo1.getItems().size(); i++) {
-                    if ((newValue).equals((Object) Courses[i].getCourseName())) {
-                        GpaBtn.setText(String.format("%.2f", Courses[i].getGpa()));
-                        CHBtn.setText(String.valueOf(Courses[i].getCH()));
+                    if ((newValue).equals((Object) FinishedCourses.get(i).getCourse().getCourseName())) {
+                        GpaBtn.setText(String.format("%.2f", FinishedCourses.get(i).getGradePoints()));
+                        CHBtn.setText(String.valueOf(FinishedCourses.get(i).getCourse().getCH()));
                     }
                 }
             }

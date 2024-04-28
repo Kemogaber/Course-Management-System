@@ -86,7 +86,7 @@ public class FXMLDocumentController implements Initializable {
                 alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error Message");
                 alert.setHeaderText(null);
-                alert.setContentText("Wrong Username/Password");
+                alert.setContentText(ex.getMessage());
                 alert.showAndWait();
             }
 

@@ -1,4 +1,4 @@
-package coursemanagementsystem;
+package project;
 
 import java.io.IOException;
 import javafx.application.Application;
@@ -20,7 +20,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException  {
-        Parent root = FXMLLoader.load(getClass().getResource("Teacherdashboard.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Teacherdashboard.fxml"));
         Scene scene = new Scene(root);
         root.setOnMousePressed((MouseEvent event) -> {
             x = event.getSceneX();

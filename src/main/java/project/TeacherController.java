@@ -1,12 +1,8 @@
-package coursemanagementsystem;
+package project;
 
-
-import coursemanagementsystem.courses.Course;
-import coursemanagementsystem.courses.Student;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;

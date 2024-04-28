@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package coursemanagementsystem.courses;
+package coursemanagementsystem.java.courses;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import coursemanagementsystem.CourseMark;
-import coursemanagementsystem.PersonalInformation;
+import project.CourseMark;
+import project.PersonalInformation;
 
 /**
  *
  * @author Fares Sultan
- * Student class contians the student's info, and methods to add and drop courses.
+ * Student class contians the student's info, and methods to add and drop project.courses.
  */
 public class Student extends PersonalInformation{
     
@@ -21,7 +21,7 @@ public class Student extends PersonalInformation{
     private String year;
 
     // Student's list of course marks.
-    // Includes previously finished courses as well as currently enrolled courses.
+    // Includes previously finished project.courses as well as currently enrolled project.courses.
     private List<CourseMark> courseMarks = new ArrayList<CourseMark>();
     
     private List<Course> availableCourses = new ArrayList<Course>();
@@ -66,7 +66,7 @@ public class Student extends PersonalInformation{
     public void updateAvaialableCourses(){
 
         availableCourses = new ArrayList<Course>();     // Reset the list.
-        for (Course course : department.getCourses()) { // Loop over courses in student's department.
+        for (Course course : department.getCourses()) { // Loop over project.courses in student's department.
             if (!this.hasCourse(course)) {              // If the student doesn't have this course.
                 availableCourses.add(course);           // Add it to availableCourses.
             }
@@ -116,7 +116,7 @@ public class Student extends PersonalInformation{
 
     @Override
     public void displayCourses(){
-        System.out.println(name + "'s courses: ");
+        System.out.println(name + "'s project.courses: ");
         for (CourseMark courseMark : courseMarks) {
             System.out.println(courseMark.getCourse().toString());
         }

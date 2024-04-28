@@ -2,10 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package coursemanagementsystem;
+package project;
 
-import coursemanagementsystem.courses.Course;
-import coursemanagementsystem.courses.Department;
+import coursemanagementsystem.java.courses.Course;
+import coursemanagementsystem.java.courses.Department;
 
 /**
  *

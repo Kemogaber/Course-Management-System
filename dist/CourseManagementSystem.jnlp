@@ -22,6 +22,6 @@
     <jar href="lib\sa-jdi.jar" size="2312778" download="eager" />
     <jar href="lib\tools.jar" size="18366323" download="eager" />
   </resources>
-  <jfx:javafx-desc  width="800" height="600" main-class="coursemanagementsystem.Main"  name="CourseManagementSystem" />
+  <jfx:javafx-desc  width="800" height="600" main-class="project.Main"  name="CourseManagementSystem" />
   <update check="always"/>
 </jnlp>

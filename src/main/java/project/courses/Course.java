@@ -1,11 +1,9 @@
-package coursemanagementsystem.courses;
+package coursemanagementsystem.java.courses;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import coursemanagementsystem.Teacher;
-import coursemanagementsystem.courses.Department;
-import coursemanagementsystem.courses.Student;
+import project.Teacher;
 
 public class Course {
     private String courseName;
@@ -45,7 +43,7 @@ public class Course {
     }
 
     // Add a student to Course.students
-    // Visible only in coursemanagementsystem.courses
+    // Visible only in coursemanagementsystem.java.project.courses
     void addStudent(Student student){
         students.add(student);
     }

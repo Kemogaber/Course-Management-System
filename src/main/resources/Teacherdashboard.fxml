@@ -31,7 +31,7 @@
                                     <Font name="Tahoma" size="24.0" />
                                  </font>
                               </Label>
-                              <FontAwesomeIcon fill="#0598ff" glyphName="BOOK_MARK" layoutX="10.0" layoutY="60.0" size="3em" text="" />
+<!--                              <FontAwesomeIcon fill="#0598ff" glyphName="BOOK_MARK" layoutX="10.0" layoutY="60.0" size="3em" text="" />-->
                            </children>
                         </AnchorPane>
                         <AnchorPane layoutX="200.0" layoutY="68.0" prefHeight="147.0" prefWidth="169.0" style="-fx-border-color: #0598ff; -fx-border-width: 0px 1px 1px 1px;">
@@ -41,7 +41,7 @@
                                     <Font name="Tahoma" size="14.0" />
                                  </font>
                               </Label>
-                              <FontAwesomeIcon fill="#0598ff" glyphName="CHECK" layoutX="11.0" layoutY="59.0" size="3em" />
+<!--                              <FontAwesomeIcon fill="#0598ff" glyphName="CHECK" layoutX="11.0" layoutY="59.0" size="3em" />-->
                               <Label fx:id="DepartmentLabel" alignment="CENTER_RIGHT" layoutX="88.0" layoutY="33.0" prefHeight="20.0" prefWidth="65.0" text="0.00" textFill="#0598ff">
                                  <font>
                                     <Font name="Tahoma" size="24.0" />
@@ -61,7 +61,7 @@
                                     <Font name="Tahoma" size="24.0" />
                                  </font>
                               </Label>
-                              <FontAwesomeIcon fill="#0598ff" glyphName="BELL" layoutX="11.0" layoutY="62.0" size="3em" />
+<!--                              <FontAwesomeIcon fill="#0598ff" glyphName="BELL" layoutX="11.0" layoutY="62.0" size="3em" />-->
                            </children>
                         </AnchorPane>
                         <AnchorPane layoutX="200.0" layoutY="225.0" prefHeight="147.0" prefWidth="169.0" style="-fx-border-color: #0598ff; -fx-border-width: 1px 1px 0px 1px;">
@@ -71,7 +71,7 @@
                                     <Font name="Tahoma" size="14.0" />
                                  </font>
                               </Label>
-                              <FontAwesomeIcon fill="#0598ff" glyphName="BAR_CHART" layoutX="11.0" layoutY="59.0" size="3em" />
+<!--                              <FontAwesomeIcon fill="#0598ff" glyphName="BAR_CHART" layoutX="11.0" layoutY="59.0" size="3em" />-->
                               <Label fx:id="SalaryLabel" alignment="CENTER_RIGHT" layoutX="88.0" layoutY="33.0" prefHeight="20.0" prefWidth="65.0" text="0.00" textFill="#0598ff">
                                  <font>
                                     <Font name="Tahoma" size="24.0" />
@@ -94,12 +94,12 @@
                         <ChoiceBox fx:id="combo" layoutX="128.0" layoutY="56.0" prefHeight="20.0" prefWidth="149.0" />
                         <Button fx:id="addBtn" layoutX="308.0" layoutY="113.0" mnemonicParsing="false" onAction="#AddCourse" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: #48fd54;" textFill="#48fd54">
                            <graphic>
-                              <FontAwesomeIcon fill="WHITE" glyphName="PLUS" />
+<!--                              <FontAwesomeIcon fill="WHITE" glyphName="PLUS" />-->
                            </graphic>
                         </Button>
                         <Button fx:id="dropBtn" layoutX="309.0" layoutY="146.0" mnemonicParsing="false" onAction="#DropCourse" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: #fd0505;" textFill="#fd0505">
                            <graphic>
-                              <FontAwesomeIcon fill="WHITE" glyphName="MINUS" />
+<!--                              <FontAwesomeIcon fill="WHITE" glyphName="MINUS" />-->
                            </graphic>
                         </Button>
                         <TextField fx:id="ActivitiesFld" layoutX="127.0" layoutY="96.0" promptText="Enter Mark" />
@@ -129,7 +129,7 @@
                   </AnchorPane>
                   <AnchorPane layoutX="2.0" layoutY="4.0" prefHeight="401.0" prefWidth="217.0" style="-fx-background-color: #0598ff;">
                      <children>
-                        <FontAwesomeIcon fill="WHITE" glyphName="USER" layoutX="73.0" layoutY="152.0" size="8em" text="" />
+<!--                        <FontAwesomeIcon fill="WHITE" glyphName="USER" layoutX="73.0" layoutY="152.0" size="8em" text="" />-->
                         <Label layoutX="52.0" layoutY="171.0" text="Kareem Gaber" textFill="WHITE">
                            <font>
                               <Font name="Tahoma Bold" size="16.0" />
@@ -137,17 +137,17 @@
                         </Label>
                         <Button fx:id="home" layoutX="17.0" layoutY="202.0" mnemonicParsing="false" onAction="#Switchform" prefHeight="30.0" prefWidth="180.0" style="-fx-background-color: #ffffff;" text="Home" textFill="#0598ff">
                            <graphic>
-                              <FontAwesomeIcon fill="#0598ff" glyphName="HOME" size="1.2em" text="" />
+<!--                              <FontAwesomeIcon fill="#0598ff" glyphName="HOME" size="1.2em" text="" />-->
                            </graphic>
                         </Button>
                         <Button fx:id="register" layoutX="17.0" layoutY="244.0" mnemonicParsing="false" onAction="#Switchform" prefHeight="30.0" prefWidth="180.0" style="-fx-background-color: #ffffff;" text="Register" textFill="#0598ff">
                            <graphic>
-                              <FontAwesomeIcon fill="#0598ff" glyphName="LIST" size="1.2em" text="" />
+<!--                              <FontAwesomeIcon fill="#0598ff" glyphName="LIST" size="1.2em" text="" />-->
                            </graphic>
                         </Button>
                         <Button fx:id="outBtn" layoutX="11.0" layoutY="365.3333333333333" mnemonicParsing="false" onAction="#LogOut" prefHeight="30.0" prefWidth="32.0" style="-fx-background-color: #ffffff;" textFill="#0598ff" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="11.0">
                            <graphic>
-                              <FontAwesomeIcon fill="#0598ff" glyphName="SIGN_OUT" size="1.7em" text="" />
+<!--                              <FontAwesomeIcon fill="#0598ff" glyphName="SIGN_OUT" size="1.7em" text="" />-->
                            </graphic>
                         </Button>
                         <Label layoutX="59.0" layoutY="370.0" text="Logout" textFill="WHITE">
@@ -161,7 +161,7 @@
             </AnchorPane>
             <Button fx:id="close" mnemonicParsing="false" onAction="#Closewind" prefHeight="25.0" prefWidth="27.0" style="-fx-background-color: #0598ff;" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                <graphic>
-                  <FontAwesomeIcon fill="WHITE" glyphName="CLOSE" />
+<!--                  <FontAwesomeIcon fill="WHITE" glyphName="CLOSE" />-->
                </graphic>
             </Button>
          </children>

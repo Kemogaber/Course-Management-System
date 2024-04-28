@@ -2,13 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package coursemanagementsystem;
+package project;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import coursemanagementsystem.courses.Course;
-import coursemanagementsystem.courses.Department;
+import coursemanagementsystem.java.courses.Course;
+import coursemanagementsystem.java.courses.Department;
 
 /**
  *
@@ -52,7 +52,7 @@ public class Teacher extends PersonalInformation {
 
     @Override
     public void displayCourses(){
-        System.out.println(name + "'s courses: ");
+        System.out.println(name + "'s project.courses: ");
         for (Course course: courses) {
             System.out.println(course.toString());
         }

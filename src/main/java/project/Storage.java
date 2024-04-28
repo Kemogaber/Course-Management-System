@@ -1,8 +1,8 @@
-package coursemanagementsystem;
+package project;
 
-import coursemanagementsystem.courses.Course;
-import coursemanagementsystem.courses.Department;
-import coursemanagementsystem.courses.Student;
+import coursemanagementsystem.java.courses.Course;
+import coursemanagementsystem.java.courses.Department;
+import coursemanagementsystem.java.courses.Student;
 
 public class Storage {
 
@@ -26,10 +26,10 @@ public class Storage {
     public static Course energyCourse = new Course("Energy and Renewables", epmDepartment, "EPM213", 3);
     public static Course circuits2Course = new Course("Circuits 2", epmDepartment, "EPM221", 4);
     
-    // Array of courses to register.
+    // Array of project.courses to register.
     public static Course[] newCourses = new Course[]{embeddedCourse, programming2Course, digitalCourse, commsCourse, energyCourse, circuits2Course};
 
-    // Define some finished courses===================================================================
+    // Define some finished project.courses===================================================================
 
     public static Course programming1Course = new Course("Computer Programming", cseDepartment, "CSE112", 3);
     public static Course controlCourse = new Course("Control", cseDepartment, "CSE221", 4);
@@ -38,7 +38,7 @@ public class Storage {
     public static Course measurementCourse = new Course("Electrical Measurements", epmDepartment, "EPM131", 3);
     public static Course materialsCourse = new Course("Electrical Materials", epmDepartment, "EPM223", 2);
 
-    // Array of finished courses.
+    // Array of finished project.courses.
     public static Course[] finishedCourses = new Course[]{programming1Course, controlCourse, signalsCourse, electronicsCourse, measurementCourse, materialsCourse};
 
     // Define some students====================================================================================

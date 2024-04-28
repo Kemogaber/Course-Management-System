@@ -1,4 +1,4 @@
-package coursemanagementsystem.courses;
+package coursemanagementsystem.java.courses;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,13 +1,9 @@
-package coursemanagementsystem;
-
-import coursemanagementsystem.courses.Course;
-import coursemanagementsystem.courses.Department;
-import coursemanagementsystem.courses.Student;
+package project;
 
 public class Tests {
     public static void main(String[] args) throws Exception {
 
-        /* // Display available courses for student.
+        /* // Display available project.courses for student.
         Storage.said.displayAvailableCourses();
 
         // Students registers a course.
@@ -21,7 +17,7 @@ public class Tests {
             System.out.println("Exception: " + e.getMessage());
         }
 
-        // Display available courses again.
+        // Display available project.courses again.
         Storage.said.displayAvailableCourses();
 
         // Select a course.
@@ -51,11 +47,11 @@ public class Tests {
         // Select a course.
         selectedCourse = Storage.controlCourse;
 
-        // Add courses for the teacher.
+        // Add project.courses for the teacher.
         selectedTeacher.addCourse(selectedCourse);
         selectedTeacher.addCourse(Storage.embeddedCourse);
 
-        // Print teacher's courses.
+        // Print teacher's project.courses.
         selectedTeacher.displayCourses();
 
         // Test login.

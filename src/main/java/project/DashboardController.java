@@ -1,9 +1,7 @@
-package coursemanagementsystem;
+package project;
 
-import coursemanagementsystem.courses.Course;
-import coursemanagementsystem.courses.Student;
-import coursemanagementsystem.courses.Department;
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import coursemanagementsystem.java.courses.Course;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -11,13 +9,10 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;

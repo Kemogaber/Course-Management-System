@@ -27,6 +27,7 @@ public class FXMLDocumentController implements Initializable {
 
     private String[] Modes = {"Student", "Teacher"};
     static Student LoggedInStudent;
+    static Teacher LoggedInTeacher;
 
     @FXML
     private Button close;
@@ -56,14 +57,21 @@ public class FXMLDocumentController implements Initializable {
         Alert alert;
 
         if (label.getValue().equals((Object) Modes[1])) {
-/*
-            loginBtn.getScene().getWindow().hide();
-            Parent root = FXMLLoader.load(getClass().getResource("Teacherdashboard.fxml"));
-            Stage stage = new Stage();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-*/
+            try {
+                LoggedInTeacher = Login.teacherLogin(username.getText(), password.getText());
+                loginBtn.getScene().getWindow().hide();
+                Parent root = FXMLLoader.load(getClass().getResource("Teacherdashboard.fxml"));
+                Stage stage = new Stage();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            } catch (Exception ex) {
+                alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error Message");
+                alert.setHeaderText(null);
+                alert.setContentText("Wrong Username/Password");
+                alert.showAndWait();
+            }
         } else if (label.getValue().equals((Object) Modes[0])) {
 
             try {
@@ -78,7 +86,7 @@ public class FXMLDocumentController implements Initializable {
                 alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error Message");
                 alert.setHeaderText(null);
-                alert.setContentText(ex.getMessage());
+                alert.setContentText("Wrong Username/Password");
                 alert.showAndWait();
             }
 

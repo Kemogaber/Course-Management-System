@@ -3,9 +3,9 @@ package coursemanagementsystem;
 import coursemanagementsystem.courses.Student;
 
 public class Login {
-    public static Student studentLogin(String password, String userName) throws Exception{
+    public static Student studentLogin(String userName, String password) throws Exception{
         for (Student student : Storage.students) {
-            if (student.name == userName && student.password == password) {
+            if (student.name.equals(userName) && student.password.equals(password)) {
                 return student;
             }
         }

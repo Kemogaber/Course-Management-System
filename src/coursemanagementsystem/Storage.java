@@ -45,7 +45,7 @@ public class Storage {
 
     public static Student said = new Student("Ahmed Said", 2101546, "said", "Junior", cseDepartment);
     public static Student hesham = new Student("Hesham Nabil", 2101000, "hesham", "Junior", eceDepartment);
-    public static Student mohamed = new Student("Mohamed Awad", 2100500, "said", "Junior", cseDepartment);
+    public static Student mohamed = new Student("Mohamed Awad", 2100500, "mohamed", "Junior", cseDepartment);
 
     // Define some teachers=======================================================================================
 

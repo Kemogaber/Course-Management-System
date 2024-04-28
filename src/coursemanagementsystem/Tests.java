@@ -56,6 +56,16 @@ public class Tests {
 
         // Print teacher's courses.
         selectedTeacher.displayCourses();
+
+        // Test login.
+        try {
+            selectedStudent = Login.studentLogin("Ahmed Said", "said");
+
+            System.out.println(selectedStudent.toString());
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+        
         
     }
 }

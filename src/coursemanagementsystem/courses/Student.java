@@ -43,6 +43,10 @@ public class Student extends PersonalInformation{
         return availableCourses;
     }
 
+    public List<CourseMark> getCourseMarks() {
+        return courseMarks;
+    }
+
     public void displayAvailableCourses(){
         this.updateAvaialableCourses();
         System.out.println("Courses available for " + name + ":");
@@ -94,6 +98,7 @@ public class Student extends PersonalInformation{
 
         int length = 0;
         int i=0;
+
 
         for (CourseMark courseMark : courseMarks) {
             length = (!courseMark.isFinished())?length+1:length;

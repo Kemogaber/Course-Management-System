@@ -73,9 +73,7 @@ public abstract class PersonalInformation {
 
     @Override
     public String toString() {
-        return """
-                PersonalInformation:
-                Name: """ + name + "\nId: " + id + "\nPassword: " + password + "\nDepartment: " + department.getDepartementName();
+        return "Name: " + name + "\nId: " + id + "\nPassword: " + password + "\nDeparetment" + department.getDepartementName();
     }
 
 }

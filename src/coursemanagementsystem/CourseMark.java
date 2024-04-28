@@ -1,5 +1,7 @@
 package coursemanagementsystem;
 
+import coursemanagementsystem.courses.Course;
+
 public class CourseMark {
 
     private Course course;
@@ -8,13 +10,12 @@ public class CourseMark {
     private int activitiesGrade = 0;
     private boolean isFinished = false;
 
-    CourseMark(Course course){
+    public CourseMark(Course course){
         this.course = course;
     }
 
     public void setFinalGrade(int finalGrade) {
         this.finalGrade = finalGrade;
-        isFinished = true;
     }
 
     public int getFinalGrade() {
@@ -37,12 +38,47 @@ public class CourseMark {
         return activitiesGrade;
     }
 
+    // Finish a course and make it uneditable.
+    // To be used at the end of the semester.
+    public void finish(){
+        isFinished = true;
+    }
+
     public boolean isFinished() {
         return isFinished;
     }
 
     public Course getCourse() {
         return course;
+    }
+
+    // TODO: Finish implementation in a cleaner way.
+    public double getGradePoints(){
+        int totalMark = finalGrade + midtermGrade + activitiesGrade;
+        if (totalMark >= 93) {
+            return 4.0;
+        }else if (totalMark >= 89) {
+            return  3.7;
+        } else if (totalMark >= 84) {
+            return 3.3;
+        } else if (totalMark >= 80) {
+            return 3.0;
+        } else if (totalMark >= 76) {
+            return 2.7;
+        } else if (totalMark >= 73) {
+            return 2.3;
+        } else if (totalMark >= 70) {
+            return 2.0;
+        } else if (totalMark >= 67) {
+            return 1.7;
+        }
+        return 0;
+    }
+
+    // TODO: Implement this.
+    // Calculates and returns the grade letter (Eg: A, B-, C+) for this courseMark.
+    public String getGradeLetter(){
+        return "A+";
     }
 
 }

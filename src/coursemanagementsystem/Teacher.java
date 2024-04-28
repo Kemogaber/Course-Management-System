@@ -4,18 +4,23 @@
  */
 package coursemanagementsystem;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import coursemanagementsystem.courses.Course;
+import coursemanagementsystem.courses.Department;
+
 /**
  *
  * @author Fares Sultan
  */
 public class Teacher extends PersonalInformation {
     
-    private String jobTitle;
     private float salary;
-    // weekly hours 
+    private List<Course> courses = new ArrayList<Course>();
 
-    public Teacher(String jobTitle, float salary) {
-        this.jobTitle = jobTitle;
+    public Teacher(String name, int id, String password, Department department, float salary) {
+        super(name, id, password, department);
         this.salary = salary;
     }
 
@@ -27,15 +32,39 @@ public class Teacher extends PersonalInformation {
         this.salary = salary;
     }
 
-    public String getJobTitle() {
-        return jobTitle;
+    @Override
+    public void displayCourses(){
+        System.out.println(name + "'s courses: ");
+        for (Course course: courses) {
+            System.out.println(course.toString());
+        }
+    }
+    
+
+    @Override
+    public void addCourse(Course course) throws Exception  {
+        if (courses.contains(course)) {
+            throw new Exception("Teacher already has this course.");
+        }
+        if (course.getDepartment() != this.getDepartment()) {
+            throw new Exception("Teacher cannot add a course from a different department.");
+        }
+        courses.add(course);
     }
 
-    public void setJobTitle(String jobTitle) {
-        this.jobTitle = jobTitle;
+    @Override
+    public void dropCourse(Course course) throws Exception {
+        if (courses.contains(course)) {
+            courses.remove(course);
+        }
+        else {
+            throw new Exception("Teacher doesn't have this course.");
+        }
     }
-    
-    
-    
-    
+
+    @Override
+    public String toString() {
+        return super.toString() + "\n" + "Salary: " + salary + "Courses: \n" + courses.toString() + "\n--------------------" ;
+    }
+
 }

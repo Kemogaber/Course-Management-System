@@ -4,33 +4,33 @@
  */
 package coursemanagementsystem;
 
+import coursemanagementsystem.courses.Course;
+import coursemanagementsystem.courses.Department;
+
 /**
  *
  * @author Fares Sultan
  */
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.Period;
 
-public class PersonalInformation {
+public abstract class PersonalInformation {
 
     protected String name;
     protected int id;
     protected String password;
 
-    protected String dateOfBirth;
     protected int numberOfEnrolledCourses;
-    protected String department;
+    protected Department department;
     
 
     public PersonalInformation() {
     }
 
     // Constructor to set the non-changeable information of the person
-    public PersonalInformation(String name, int id, String password) {
+    public PersonalInformation(String name, int id, String password, Department department) {
         this.name = name;
         this.id = id;
         this.password = password;
+        this.department = department;
     }
 
     public void setName(String name) {
@@ -57,21 +57,25 @@ public class PersonalInformation {
         return id;
     }
 
-    public void setDepartment(String department) {
+    public void setDepartment(Department department) {
         this.department = department;
     }
 
-    public String getDepartment() {
+    public Department getDepartment() {
         return department;
     }
 
-    public int calculateAge() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        LocalDate dob = LocalDate.parse(this.dateOfBirth, formatter);
-        LocalDate currentDate = LocalDate.now();
-        return Period.between(dob, currentDate).getYears();
+    public abstract void addCourse(Course course) throws Exception;
+
+    public abstract void dropCourse(Course course) throws Exception;
+
+    public abstract void displayCourses();
+
+    @Override
+    public String toString() {
+        return """
+                PersonalInformation:
+                Name: """ + name + "\nId: " + id + "\nPassword: " + password + "\nDepartment: " + department.getDepartementName();
     }
-
-
 
 }

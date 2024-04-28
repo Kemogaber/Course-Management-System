@@ -70,6 +70,46 @@ public class Student extends PersonalInformation{
         }
     }
 
+    public String[] getFinishedCourseStrings(){
+
+        int length = 0;
+        int i=0;
+
+        for (CourseMark courseMark : courseMarks) {
+            length = (courseMark.isFinished())?length+1:length;
+        }
+
+        String[] finishedCourses = new String[length];
+        for (CourseMark courseMark : courseMarks) {
+            if (courseMark.isFinished()) {
+                finishedCourses[i]= courseMark.getCourse().getCourseName();
+                i++;
+            }
+        }
+        
+        return finishedCourses;
+    }
+
+    public String[] getAvailableCourseStrings(){
+
+        int length = 0;
+        int i=0;
+
+        for (CourseMark courseMark : courseMarks) {
+            length = (!courseMark.isFinished())?length+1:length;
+        }
+
+        String[] finishedCourses = new String[length];
+        for (CourseMark courseMark : courseMarks) {
+            if (!courseMark.isFinished()) {
+                finishedCourses[i]= courseMark.getCourse().getCourseName();
+                i++;
+            }
+        }
+        
+        return finishedCourses;
+    }
+
     @Override
     public void displayCourses(){
         System.out.println(name + "'s courses: ");

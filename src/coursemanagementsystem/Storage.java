@@ -49,9 +49,9 @@ public class Storage {
 
     // Define some teachers=======================================================================================
 
-    public static Teacher teacherCSE = new Teacher("CSE Teacher", 1, "cse", cseDepartment, 1000);
-    public static Teacher teacherECE = new Teacher("ECE Teacher", 2, "cse", eceDepartment, 1000);
-    public static Teacher teacherEPM = new Teacher("EPM Teacher", 3, "cse", epmDepartment, 1000);
+    public static Teacher teacherCSE = new Teacher("CSE Teacher", 1, "cse", cseDepartment, 1000, 25);
+    public static Teacher teacherECE = new Teacher("ECE Teacher", 2, "cse", eceDepartment, 1000, 40);
+    public static Teacher teacherEPM = new Teacher("EPM Teacher", 3, "cse", epmDepartment, 1000, 30);
 
     // Array of registered users, students and teacher alike.
     public static PersonalInformation users[] = new PersonalInformation[]{said, hesham, mohamed, teacherCSE, teacherECE, teacherEPM};

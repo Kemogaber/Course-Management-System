@@ -7,7 +7,7 @@ import coursemanagementsystem.courses.Student;
 public class Tests {
     public static void main(String[] args) throws Exception {
 
-        // Display available courses for student.
+        /* // Display available courses for student.
         Storage.said.displayAvailableCourses();
 
         // Students registers a course.
@@ -37,6 +37,7 @@ public class Tests {
 
         // Finish course.
         selectedStudent.getCourseMark(selectedCourse).finish();
+        Storage.said.getCourseMark(Storage.controlCourse).finish();
 
         // Print mark.
         System.out.println(selectedStudent.getCourseMark(selectedCourse).getGradePoints());
@@ -65,7 +66,31 @@ public class Tests {
         } catch (Exception e) {
             // TODO: handle exception
         }
+        */
+
+        Storage.teacherCSE.addCourse(Storage.programming1Course);
+        Storage.teacherCSE.addCourse(Storage.controlCourse);
+         
+
+        Storage.said.addCourse(Storage.programming1Course);
+        Storage.said.addCourse(Storage.programming2Course);
+        Storage.said.addCourse(Storage.controlCourse);
+        Storage.said.addCourse(Storage.embeddedCourse);
+
+        /* Storage.said.getCourseMark(Storage.programming1Course).finish();
+        Storage.said.getCourseMark(Storage.controlCourse).finish() */;
+
         
+        /* for (String string : Storage.said.getFinishedCourseStrings()) {
+            System.out.println(string);
+        }
         
+        System.out.println("==============================");
+
+        for (String string : Storage.said.getAvailableCourseStrings()) {
+            System.out.println(string);
+        } */
+
+        System.out.println(Storage.teacherCSE.getTotalStudents());
     }
 }

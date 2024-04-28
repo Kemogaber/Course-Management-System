@@ -17,11 +17,13 @@ import coursemanagementsystem.courses.Department;
 public class Teacher extends PersonalInformation {
     
     private float salary;
+    private int weeklyHours;
     private List<Course> courses = new ArrayList<Course>();
 
-    public Teacher(String name, int id, String password, Department department, float salary) {
+    public Teacher(String name, int id, String password, Department department, float salary, int weeklyHours) {
         super(name, id, password, department);
         this.salary = salary;
+        this.weeklyHours = weeklyHours;
     }
 
     public float getSalary() {
@@ -32,6 +34,22 @@ public class Teacher extends PersonalInformation {
         this.salary = salary;
     }
 
+    public int getWeeklyHours() {
+        return weeklyHours;
+    }
+
+    public void setWeeklyHours(int weeklyHours) {
+        this.weeklyHours = weeklyHours;
+    }
+
+    public int getTotalStudents(){
+        int studentsNum = 0;
+        for (Course course : courses) {
+            studentsNum += course.getStudents().size();
+        }
+        return studentsNum;
+    }
+
     @Override
     public void displayCourses(){
         System.out.println(name + "'s courses: ");
@@ -39,7 +57,6 @@ public class Teacher extends PersonalInformation {
             System.out.println(course.toString());
         }
     }
-    
 
     @Override
     public void addCourse(Course course) throws Exception  {

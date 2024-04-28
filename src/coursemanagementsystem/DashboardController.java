@@ -33,7 +33,13 @@ import javafx.stage.Stage;
 public class DashboardController implements Initializable {
 
     @FXML
+    private Label CHBtn;
+
+    @FXML
     private TableColumn<Course, Integer> CHColumn;
+
+    @FXML
+    private Label CHview;
 
     @FXML
     private TableColumn<Course, String> CodeColumn;
@@ -42,13 +48,16 @@ public class DashboardController implements Initializable {
     private TableColumn<Course, String> CourseNameColumn;
 
     @FXML
+    private Label GpaBtn;
+
+    @FXML
     private AnchorPane HomePane;
 
     @FXML
     private AnchorPane RegisterPane;
 
     @FXML
-    private Label CHBtn;
+    private Label TotalGpaBtn;
 
     @FXML
     private Button addBtn;
@@ -75,23 +84,10 @@ public class DashboardController implements Initializable {
     private Button register;
 
     @FXML
-    private Label GpaBtn;
-
-    @FXML
     private TableView<Course> tableview1;
 
-    @FXML
-    private Label CHview;
-
-    @FXML
-    private Label TotalGpaBtn;
-
-    static List<Course> AvailableCourses= FXMLDocumentController.LoggedInStudent.getAvailableCourses();
-    static List<CourseMark> FinishedCourses= FXMLDocumentController.LoggedInStudent.getCourseMarks();
-    ObservableList<Course> list = FXCollections.observableArrayList();
-    double total = 0;
-    double num;
-    double totGpa;
+    static List<Course> AvailableCourses = FXMLDocumentController.LoggedInStudent.getAvailableCourses();
+    static List<CourseMark> FinishedCourses = FXMLDocumentController.LoggedInStudent.getCourseMarks();
 
     @FXML
     void Closewind(ActionEvent event) {
@@ -130,24 +126,12 @@ public class DashboardController implements Initializable {
     }
 
     @FXML
-    void DropCourse(ActionEvent event) {
-        /* Course selecteditem = tableview1.getSelectionModel().getSelectedItem();
-        total -= selecteditem.getCH();
-        for (int i = 0; i < AvailableCourses.size(); i++) {
-            if (tableview1.getItems().size() != 0) {
-                if (tableview1.getSelectionModel().getSelectedItem().getCourseName().equals(courses[i].getCourseName())) {
-                    num = num - (courses[i].getCH() * courses[i].getGpa());
-                    double totGpa = num / total;
-                    totGpa = total <= 0 ? 0.00 : totGpa;
-                    totGpa = (total == 0 ? 0.00 : totGpa);
-                    TotalGpaBtn.setText(String.format("%.2f", totGpa));
-                }
-            }
-        }
-        combo2.getItems().add(tableview1.getSelectionModel().getSelectedItem().getCoursename());
+    void DropCourse(ActionEvent event) throws Exception {
+        Course selecteditem = tableview1.getSelectionModel().getSelectedItem();
+        combo2.getItems().add(tableview1.getSelectionModel().getSelectedItem().getCourseName());
         tableview1.getItems().remove(selecteditem);
-        CHview.setText(String.valueOf(total));
-*/
+        FXMLDocumentController.LoggedInStudent.dropCourse(selecteditem);
+
     }
 
     @FXML

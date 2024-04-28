@@ -166,7 +166,7 @@ public class Student extends PersonalInformation{
             throw new Exception("Student cannot add a course from a different department.");
         }
         else {
-            courseMarks.add(new CourseMark(course));
+            courseMarks.add(new CourseMark(course, this));
             this.updateAvaialableCourses();
             course.addStudent(this);
         }

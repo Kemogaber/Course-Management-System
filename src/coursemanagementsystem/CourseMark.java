@@ -1,6 +1,7 @@
 package coursemanagementsystem;
 
 import coursemanagementsystem.courses.Course;
+import coursemanagementsystem.courses.Student;
 
 public class CourseMark {
 
@@ -9,9 +10,11 @@ public class CourseMark {
     private int midtermGrade = 0;
     private int activitiesGrade = 0;
     private boolean isFinished = false;
+    private Student student;
 
-    public CourseMark(Course course){
+    public CourseMark(Course course, Student student){
         this.course = course;
+        this.student = student;
     }
 
     public void setFinalGrade(int finalGrade) {
@@ -36,6 +39,10 @@ public class CourseMark {
 
     public int getActivitiesGrade() {
         return activitiesGrade;
+    }
+
+    public Student getStudent() {
+        return student;
     }
 
     // Finish a course and make it uneditable.

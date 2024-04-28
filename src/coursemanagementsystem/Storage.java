@@ -56,4 +56,6 @@ public class Storage {
     // Array of registered users, students and teacher alike.
     public static PersonalInformation users[] = new PersonalInformation[]{said, hesham, mohamed, teacherCSE, teacherECE, teacherEPM};
 
+    public static Student students[] = new Student[]{said, hesham, mohamed};
+    public static Teacher teachers[] = new Teacher[]{teacherCSE, teacherECE, teacherEPM};
 }

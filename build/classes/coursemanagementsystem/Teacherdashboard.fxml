@@ -17,7 +17,7 @@
          <children>
             <AnchorPane layoutY="-0.6666666666666666" prefHeight="403.0" prefWidth="609.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-1.0">
                <children>
-                  <AnchorPane fx:id="HomePane" layoutX="219.0" layoutY="4.0" prefHeight="403.0" prefWidth="389.0" style="-fx-background-color: #ffffff;">
+                  <AnchorPane fx:id="HomePane" layoutX="219.0" layoutY="4.0" prefHeight="403.0" prefWidth="389.0" style="-fx-background-color: #ffffff;" visible="false">
                      <children>
                         <AnchorPane layoutX="21.0" layoutY="68.0" prefHeight="115.0" prefWidth="169.0" style="-fx-border-color: #0598ff; -fx-border-width: 0px 1px 1px 1px;">
                            <children>
@@ -81,7 +81,7 @@
                         </AnchorPane>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="RegisterPane" layoutX="219.0" layoutY="4.0" prefHeight="403.0" prefWidth="389.0" style="-fx-background-color: #ffffff;" visible="false">
+                  <AnchorPane fx:id="RegisterPane" layoutX="219.0" layoutY="4.0" prefHeight="403.0" prefWidth="389.0" style="-fx-background-color: #ffffff;">
                      <children>
                         <TableView fx:id="tableview" layoutX="7.0" layoutY="209.0" prefHeight="189.0" prefWidth="377.0" style="-fx-background-color: #ffffff;">
                           <columns>
@@ -91,7 +91,7 @@
                               <TableColumn fx:id="FinalColumn" prefWidth="97.33340454101562" text="Final" />
                           </columns>
                         </TableView>
-                        <ChoiceBox fx:id="combo2" layoutX="128.0" layoutY="56.0" prefHeight="20.0" prefWidth="149.0" />
+                        <ChoiceBox fx:id="combo" layoutX="128.0" layoutY="56.0" prefHeight="20.0" prefWidth="149.0" />
                         <Button fx:id="addBtn" layoutX="308.0" layoutY="113.0" mnemonicParsing="false" onAction="#AddCourse" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: #48fd54;" textFill="#48fd54">
                            <graphic>
                               <FontAwesomeIcon fill="WHITE" glyphName="PLUS" />

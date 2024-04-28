@@ -1,6 +1,8 @@
 package coursemanagementsystem;
 
 import coursemanagementsystem.courses.Course;
+import coursemanagementsystem.courses.Student;
+import coursemanagementsystem.courses.Department;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import java.io.IOException;
 import java.net.URL;
@@ -136,6 +138,7 @@ public class DashboardController implements Initializable {
 
     @FXML
     void AddCourse(ActionEvent event) {
+
         for (int i = 0; i < AvailableCourses.size(); i++) {
             if (combo2.getValue().equals(AvailableCourses.get(i).getCourseName())) {
                 tableview1.getItems().add(AvailableCourses.get(i));

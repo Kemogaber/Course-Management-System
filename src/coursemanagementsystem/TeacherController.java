@@ -1,13 +1,18 @@
 package coursemanagementsystem;
 
-import static coursemanagementsystem.DashboardController.AvailableCourses;
+
 import coursemanagementsystem.courses.Course;
+import coursemanagementsystem.courses.Student;
+
 import java.io.IOException;
+import java.net.URL;
 import java.util.List;
 import java.util.Optional;
+import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -21,10 +26,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class TeacherController {
+public class TeacherController implements Initializable {
 
     @FXML
-    private TableColumn<CourseMark, Integer> ActivitiesColumn;
+    private TableColumn<?, ?> ActivitiesColumn;
 
     @FXML
     private TextField ActivitiesFld;
@@ -33,7 +38,7 @@ public class TeacherController {
     private Label DepartmentLabel;
 
     @FXML
-    private TableColumn<CourseMark, Integer> FinalColumn;
+    private TableColumn<?, ?> FinalColumn;
 
     @FXML
     private TextField FinalFld;
@@ -42,7 +47,7 @@ public class TeacherController {
     private AnchorPane HomePane;
 
     @FXML
-    private TableColumn<CourseMark, Integer> MidtermColumn;
+    private TableColumn<?, ?> MidtermColumn;
 
     @FXML
     private TextField MidtermFld;
@@ -54,7 +59,7 @@ public class TeacherController {
     private Label SalaryLabel;
 
     @FXML
-    private TableColumn<Course, String> StudentNameColumn;
+    private TableColumn<?, ?> StudentNameColumn;
 
     @FXML
     private Label TotalStudentsLabel;
@@ -69,7 +74,7 @@ public class TeacherController {
     private Button close;
 
     @FXML
-    private ChoiceBox<String> combo2;
+    private ChoiceBox<String> combo;
 
     @FXML
     private Button dropBtn;
@@ -84,19 +89,11 @@ public class TeacherController {
     private Button register;
 
     @FXML
-    private TableView<Course> tableview;
+    private TableView<?> tableview;
 
-    static List<Course> AvailableCourses = FXMLDocumentController.LoggedInStudent.getAvailableCourses();
-    static List<CourseMark> FinishedCourses = FXMLDocumentController.LoggedInStudent.getCourseMarks();
-    
     @FXML
     void AddCourse(ActionEvent event) {
-        for (int i = 0; i < AvailableCourses.size(); i++) {
-            if (combo2.getValue().equals(AvailableCourses.get(i).getCourseName())) {
-                tableview.getItems().add(AvailableCourses.get(i));
-                combo2.getItems().remove(combo2.getValue());
-            }
-        }
+
     }
 
     @FXML
@@ -138,6 +135,16 @@ public class TeacherController {
             HomePane.setVisible(false);
             RegisterPane.setVisible(false);
         }
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        //Student LoggedInStudent = Storage.said;
+
+        //List<Course> AvailableCourses = LoggedInStudent.getAvailableCourses();
+        //List<CourseMark> FinishedCourses = LoggedInStudent.getCourseMarks();
+        combo.setValue(Storage.said.getName());
+
     }
 
 }

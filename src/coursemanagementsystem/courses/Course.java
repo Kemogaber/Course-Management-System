@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import coursemanagementsystem.Teacher;
+import coursemanagementsystem.courses.Department;
+import coursemanagementsystem.courses.Student;
 
 public class Course {
     private String courseName;

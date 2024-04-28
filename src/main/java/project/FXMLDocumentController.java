@@ -56,7 +56,7 @@ public class FXMLDocumentController implements Initializable {
             try {
                 LoggedInTeacher = Login.teacherLogin(username.getText(), password.getText());
                 loginBtn.getScene().getWindow().hide();
-                Parent root = FXMLLoader.load(getClass().getResource("Teacherdashboard.fxml"));
+                Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Teacherdashboard.fxml"));
                 Stage stage = new Stage();
                 Scene scene = new Scene(root);
                 stage.setScene(scene);
@@ -73,7 +73,7 @@ public class FXMLDocumentController implements Initializable {
             try {
                 LoggedInStudent = Login.studentLogin(username.getText(), password.getText());
                 loginBtn.getScene().getWindow().hide();
-                Parent root = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
+                Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Dashboard.fxml"));
                 Stage stage = new Stage();
                 Scene scene = new Scene(root);
                 stage.setScene(scene);

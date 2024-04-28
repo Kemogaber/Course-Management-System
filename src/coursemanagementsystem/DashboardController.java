@@ -1,5 +1,6 @@
 package coursemanagementsystem;
 
+import coursemanagementsystem.courses.Course;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import java.io.IOException;
 import java.net.URL;
@@ -29,102 +30,103 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class DashboardController implements Initializable {
-  @FXML
-  private TableColumn<Course, Integer> CHColumn;
 
-  @FXML
-  private TableColumn<Course, String> CodeColumn;
+    @FXML
+    private TableColumn<Course, Integer> CHColumn;
 
-  @FXML
-  private TableColumn<Course, String> CourseNameColumn;
+    @FXML
+    private TableColumn<Course, String> CodeColumn;
 
-  @FXML
-  private AnchorPane HomePane;
+    @FXML
+    private TableColumn<Course, String> CourseNameColumn;
 
-  @FXML
-  private AnchorPane RegisterPane;
+    @FXML
+    private AnchorPane HomePane;
 
-  @FXML
-  private Label CHBtn;
+    @FXML
+    private AnchorPane RegisterPane;
 
-  @FXML
-  private Button addBtn;
+    @FXML
+    private Label CHBtn;
 
-  @FXML
-  private Button close;
+    @FXML
+    private Button addBtn;
 
-  @FXML
-  private ChoiceBox<String> combo1;
+    @FXML
+    private Button close;
 
-  @FXML
-  private ChoiceBox<String> combo2;
+    @FXML
+    private ChoiceBox<String> combo1;
 
-  @FXML
-  private Button dropBtn;
+    @FXML
+    private ChoiceBox<String> combo2;
 
-  @FXML
-  private Button home;
+    @FXML
+    private Button dropBtn;
 
-  @FXML
-  private Button outBtn;
+    @FXML
+    private Button home;
 
-  @FXML
-  private Button register;
+    @FXML
+    private Button outBtn;
 
-  @FXML
-  private Label GpaBtn;
+    @FXML
+    private Button register;
 
-  @FXML
-  private TableView<Course> tableview1;
+    @FXML
+    private Label GpaBtn;
 
-  @FXML
-  private Label CHview;
+    @FXML
+    private TableView<Course> tableview1;
 
-  @FXML
-  private Label TotalGpaBtn;
+    @FXML
+    private Label CHview;
 
-  
-  ObservableList<Course> list = FXCollections.observableArrayList(new Course());
-  double total = 0;
-  double num;
-  double totGpa;
+    @FXML
+    private Label TotalGpaBtn;
 
-  @FXML
-  void Closewind(ActionEvent event) {
-    close.getScene().getWindow().hide();
-  }
+    ObservableList<Course> list = FXCollections.observableArrayList();
+    double total = 0;
+    double num;
+    double totGpa;
 
-  @FXML
-  public void LogOut(ActionEvent event) throws IOException {
-    Alert alert = new Alert(AlertType.CONFIRMATION);
-    alert.setTitle("Confirmation Message");
-    alert.setHeaderText(null);
-    alert.setContentText("Are you sure you want to logout?");
-    Optional<ButtonType> option = alert.showAndWait();
-    if (option.get().equals(ButtonType.OK)) {
-      outBtn.getScene().getWindow().hide();
-      Parent root = FXMLLoader.load(getClass().getResource("FXML.fxml"));
-      Stage stage = new Stage();
-      Scene scene = new Scene(root);
-      stage.setScene(scene);
-      stage.show();
+    @FXML
+    void Closewind(ActionEvent event) {
+        close.getScene().getWindow().hide();
     }
-  }
 
-  @FXML
-  void Switchform(ActionEvent event) {
-    if (event.getSource() == home) {
-      HomePane.setVisible(true);
-      RegisterPane.setVisible(false);
-    } else if (event.getSource() == register) {
-      HomePane.setVisible(false);
-      RegisterPane.setVisible(true);
-    } else {
-      HomePane.setVisible(false);
-      RegisterPane.setVisible(false);
+    @FXML
+    public void LogOut(ActionEvent event) throws IOException {
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation Message");
+        alert.setHeaderText(null);
+        alert.setContentText("Are you sure you want to logout?");
+        Optional<ButtonType> option = alert.showAndWait();
+        if (option.get().equals(ButtonType.OK)) {
+            outBtn.getScene().getWindow().hide();
+            Parent root = FXMLLoader.load(getClass().getResource("FXML.fxml"));
+            Stage stage = new Stage();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
     }
-  }
 
+    @FXML
+    void Switchform(ActionEvent event) {
+        if (event.getSource() == home) {
+            HomePane.setVisible(true);
+            RegisterPane.setVisible(false);
+        } else if (event.getSource() == register) {
+            HomePane.setVisible(false);
+            RegisterPane.setVisible(true);
+        } else {
+            HomePane.setVisible(false);
+            RegisterPane.setVisible(false);
+        }
+    }
+
+    /*
   @FXML
   void DropCourse(ActionEvent event) {
     Course selecteditem = tableview1.getSelectionModel().getSelectedItem();
@@ -140,7 +142,7 @@ public class DashboardController implements Initializable {
         }
       }
     }
-    combo2.getItems().add(tableview1.getSelectionModel().getSelectedItem().getCoursename());
+   combo2.getItems().add(tableview1.getSelectionModel().getSelectedItem().getCoursename());
     tableview1.getItems().remove(selecteditem);
     CHview.setText(String.valueOf(total));
 
@@ -162,24 +164,24 @@ public class DashboardController implements Initializable {
     }
 
   }
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        String[] Courses = new String[6];
 
-  @Override
-  public void initialize(URL url, ResourceBundle rb) {
-    String[] Courses = new String[6];
+        for (int i = 0; i < Storage.finishedCourses.length; i++) {
+            Courses[i] = Storage.finishedCourses[i].getCourseName();
+        }
 
-    for (int i = 0; i < Storage.finishedCourses.length; i++) {
-      Courses[i] = Storage.finishedCourses[i].getCourseName();
-    }
-
-    combo1.setValue(Courses[0]);
-    combo1.getItems().addAll(Courses);
-    combo2.setValue(Courses[0]);
-    combo2.getItems().addAll(Courses);
-    /*
+        combo1.setValue(Courses[0]);
+        combo1.getItems().addAll(Courses);
+        combo2.setValue(Courses[0]);
+        combo2.getItems().addAll(Courses);
+        /*
     CourseNameColumn.setCellValueFactory(new PropertyValueFactory<Course, String>("coursename"));
     CHColumn.setCellValueFactory(new PropertyValueFactory<Course, Integer>("CH"));
     CodeColumn.setCellValueFactory(new PropertyValueFactory<Course, String>("code"));
-*/
+
     CHview.setText("0");
     combo1.getSelectionModel().selectedItemProperty().addListener(
         new ChangeListener() {
@@ -195,5 +197,6 @@ public class DashboardController implements Initializable {
         });
 
   }
-
+         */
+    }
 }

@@ -20,14 +20,13 @@ public class Student extends PersonalInformation{
     // Student's academic year Eg: Freshman, Sophomore, Junior.
     private String year;
 
-    // Student's gpa: 0.0 - 4.0
-    private float gpa;
-
     // Student's list of course marks.
     // Includes previously finished courses as well as currently enrolled courses.
     private List<CourseMark> courseMarks = new ArrayList<CourseMark>();
     
-    private List<Course> availableCourses = new ArrayList<Course>(); 
+    private List<Course> availableCourses = new ArrayList<Course>();
+
+    // TODO: total CHs
 
     public Student(String name, int id, String passWord, String year, Department departement) {
         super(name, id, passWord, departement);
@@ -178,6 +177,9 @@ public class Student extends PersonalInformation{
 
         if(!this.hasCourse(course)){    // If course is not registered.
             throw new Exception("Student hasn't registered this course.");
+        }
+        if (this.getCourseMark(course).isFinished()) {
+            throw new Exception("Course is already finished.");
         }
         
         // Else remove courseMark.

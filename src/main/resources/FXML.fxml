@@ -26,7 +26,7 @@
             <Line endX="100.0" layoutX="456.0" layoutY="213.0" startX="-100.0" stroke="#0598ff" strokeWidth="2.0" />
             <Button fx:id="close" layoutX="558.0" layoutY="14.0" mnemonicParsing="false" onAction="#CloseWindow" style="-fx-background-color: #0598ff;" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                <graphic>
-                  <FontAwesomeIcon fill="#ebe9e9" glyphName="CLOSE" size="1.2em" />
+<!--                  <FontAwesomeIcon fill="#ebe9e9" glyphName="CLOSE" size="1.2em" />-->
                </graphic>
                <textFill>
                   <LinearGradient endX="1.0" endY="1.0">
@@ -61,12 +61,12 @@
                         <Font name="Tahoma" size="18.0" />
                      </font>
                   </Label>
-                  <FontAwesomeIcon fill="#f2f3f4" glyphName="BOOK" layoutX="102.0" layoutY="175.0" size="8em" />
+<!--                  <FontAwesomeIcon fill="#f2f3f4" glyphName="BOOK" layoutX="102.0" layoutY="175.0" size="8em" />-->
                </children>
             </AnchorPane>
-            <FontAwesomeIcon fill="#0598ff" glyphName="KEY" layoutX="321.0" layoutY="290.0" size="2em" />
-            <FontAwesomeIcon fill="#0598ff" glyphName="USER" layoutX="323.0" layoutY="253.0" size="2em" />
-            <FontAwesomeIcon fill="#0598ff" glyphName="USERS" layoutX="404.0" layoutY="147.0" size="8em" />
+<!--            <FontAwesomeIcon fill="#0598ff" glyphName="KEY" layoutX="321.0" layoutY="290.0" size="2em" />-->
+<!--            <FontAwesomeIcon fill="#0598ff" glyphName="USER" layoutX="323.0" layoutY="253.0" size="2em" />-->
+<!--            <FontAwesomeIcon fill="#0598ff" glyphName="USERS" layoutX="404.0" layoutY="147.0" size="8em" />-->
          </children>
       </AnchorPane>
    </children>

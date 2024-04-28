@@ -111,7 +111,7 @@ public class TeacherController implements Initializable {
         Optional<ButtonType> option = alert.showAndWait();
         if (option.get().equals(ButtonType.OK)) {
             outBtn.getScene().getWindow().hide();
-            Parent root = FXMLLoader.load(getClass().getResource("FXML.fxml"));
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("FXML.fxml"));
             Stage stage = new Stage();
             Scene scene = new Scene(root);
             stage.setScene(scene);

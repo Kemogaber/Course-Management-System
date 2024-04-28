@@ -1,6 +1,6 @@
 package project;
 
-import coursemanagementsystem.java.courses.Course;
+import project.courses.Course;
 
 import java.io.IOException;
 import java.net.URL;

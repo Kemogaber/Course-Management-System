@@ -1,7 +1,7 @@
 package project;
 
-import coursemanagementsystem.java.courses.Course;
-import coursemanagementsystem.java.courses.Student;
+import project.courses.Course;
+import project.courses.Student;
 
 public class CourseMark {
 

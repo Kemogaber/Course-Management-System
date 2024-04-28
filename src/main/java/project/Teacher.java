@@ -7,8 +7,8 @@ package project;
 import java.util.ArrayList;
 import java.util.List;
 
-import coursemanagementsystem.java.courses.Course;
-import coursemanagementsystem.java.courses.Department;
+import project.courses.Course;
+import project.courses.Department;
 
 /**
  *

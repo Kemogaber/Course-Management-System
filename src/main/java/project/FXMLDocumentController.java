@@ -1,6 +1,6 @@
 package project;
 
-import coursemanagementsystem.java.courses.Student;
+import project.courses.Student;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;

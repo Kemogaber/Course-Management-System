@@ -1,6 +1,6 @@
 package project;
 
-import coursemanagementsystem.java.courses.Student;
+import project.courses.Student;
 
 public class Login {
 

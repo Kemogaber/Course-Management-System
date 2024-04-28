@@ -83,10 +83,8 @@ public class DashboardController implements Initializable {
   @FXML
   private Label TotalGpaBtn;
 
+  
   ObservableList<Course> list = FXCollections.observableArrayList(new Course());
-  Course[] courses = { new Course("Digital", 3, "ECE212", 2.7),
-      new Course("Embedded", 3, "CSE224", 3.3),
-      new Course("Programming", 2, "CSE231", 3.7) };
   double total = 0;
   double num;
   double totGpa;
@@ -167,28 +165,30 @@ public class DashboardController implements Initializable {
 
   @Override
   public void initialize(URL url, ResourceBundle rb) {
-    String[] finishedCourses = new String[6];
+    String[] Courses = new String[6];
 
     for (int i = 0; i < Storage.finishedCourses.length; i++) {
-      finishedCourses[i] = Storage.finishedCourses[i].getCourseName();
+      Courses[i] = Storage.finishedCourses[i].getCourseName();
     }
 
     combo1.setValue(Courses[0]);
     combo1.getItems().addAll(Courses);
     combo2.setValue(Courses[0]);
     combo2.getItems().addAll(Courses);
+    /*
     CourseNameColumn.setCellValueFactory(new PropertyValueFactory<Course, String>("coursename"));
     CHColumn.setCellValueFactory(new PropertyValueFactory<Course, Integer>("CH"));
     CodeColumn.setCellValueFactory(new PropertyValueFactory<Course, String>("code"));
+*/
     CHview.setText("0");
     combo1.getSelectionModel().selectedItemProperty().addListener(
         new ChangeListener() {
           @Override
           public void changed(ObservableValue observable, Object oldValue, Object newValue) {
             for (int i = 0; i < combo1.getItems().size(); i++) {
-              if ((newValue).equals((Object) finishedCourses[i].getCourseName())) {
-                GpaBtn.setText(String.format("%.2f", finishedCourses[i].getGpa()));
-                CHBtn.setText(String.valueOf(finishedCourses[i].getCH()));
+              if ((newValue).equals((Object) Courses[i].getCourseName())) {
+                GpaBtn.setText(String.format("%.2f", Courses[i].getGpa()));
+                CHBtn.setText(String.valueOf(Courses[i].getCH()));
               }
             }
           }

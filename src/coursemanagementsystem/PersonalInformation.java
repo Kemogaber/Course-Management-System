@@ -72,12 +72,6 @@ public class PersonalInformation {
         return Period.between(dob, currentDate).getYears();
     }
 
-    @Override
-    public String toString() {
-        return """
-                PersonalInformation:
-                Name: """ + name + "\nId: " + id + "\nDepartment: " + department + "\nPassword: " + password
-                + "\n Date of brith: " + dateOfBirth + "\n Age: " + calculateAge() + "\n--------------------";
-    }
+
 
 }

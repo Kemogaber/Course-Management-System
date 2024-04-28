@@ -4,6 +4,7 @@ import coursemanagementsystem.courses.Course;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
@@ -85,7 +86,8 @@ public class DashboardController implements Initializable {
     @FXML
     private Label TotalGpaBtn;
 
-    String[] courses= FXMLDocumentController.LoggedInStudent;
+    static List<Course> AvailableCourses= FXMLDocumentController.LoggedInStudent.getAvailableCourses();
+    static List<Course> FinishedCourses= FXMLDocumentController.LoggedInStudent.getCourseMark();
     ObservableList<Course> list = FXCollections.observableArrayList();
     double total = 0;
     double num;
@@ -150,8 +152,8 @@ public class DashboardController implements Initializable {
 
     @FXML
     void AddCourse(ActionEvent event) {
-        for (int i = 0; i < courses.length; i++) {
-            if (combo2.getValue().equals(courses[i].getCourseName())) {
+        for (int i = 0; i < AvailableCourses.length; i++) {
+            if (combo2.getValue().equals(AvailableCourses[i].)) {
                 tableview1.getItems().add(courses[i]);
                 combo2.getItems().remove(combo2.getValue());
 

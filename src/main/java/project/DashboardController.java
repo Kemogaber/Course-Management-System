@@ -1,6 +1,7 @@
 package project;
 
 import project.courses.Course;
+import project.courses.CourseMark;
 import project.courses.Student;
 
 import java.io.IOException;

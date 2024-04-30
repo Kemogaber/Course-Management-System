@@ -46,6 +46,7 @@ public class CourseMark {
     // To be used at the end of the semester.
     public void finish(){
         isFinished = true;
+        student.finishCourseMark(this);
     }
 
     public boolean isFinished() {

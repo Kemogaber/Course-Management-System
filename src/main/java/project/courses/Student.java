@@ -49,6 +49,10 @@ public class Student extends PersonalInformation{
         return courseMarks;
     }
 
+    public List<CourseMark> getFinishedCourseMarks() {
+        return finishedCourseMarks;
+    }
+
     public void displayAvailableCourses(){
         this.updateAvaialableCourses();
         System.out.println("Courses available for " + name + ":");
@@ -78,22 +82,17 @@ public class Student extends PersonalInformation{
 
     public String[] getFinishedCourseStrings(){
 
-        int length = 0;
-        int i=0;
+        String[] finishedCoursesString = new String[finishedCourseMarks.size()];
 
-        for (CourseMark courseMark : courseMarks) {
-            length = (courseMark.isFinished())?length+1:length;
-        }
-
-        String[] finishedCourses = new String[length];
-        for (CourseMark courseMark : courseMarks) {
-            if (courseMark.isFinished()) {
-                finishedCourses[i]= courseMark.getCourse().getCourseName();
-                i++;
-            }
+        for (int i = 0; i < finishedCoursesString.length; i++) {
+            finishedCoursesString[i] = finishedCourseMarks.get(i).getCourse().getCourseName();
         }
         
-        return finishedCourses;
+        return finishedCoursesString;
+    }
+
+    void finishCourseMark(CourseMark courseMark){
+        finishedCourseMarks.add(courseMark);
     }
 
     public String[] getAvailableCourseStrings(){

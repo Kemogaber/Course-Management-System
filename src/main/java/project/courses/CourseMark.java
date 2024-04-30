@@ -1,7 +1,4 @@
-package project;
-
-import project.courses.Course;
-import project.courses.Student;
+package project.courses;
 
 public class CourseMark {
 

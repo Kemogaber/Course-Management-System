@@ -7,7 +7,6 @@ package project.courses;
 import java.util.ArrayList;
 import java.util.List;
 
-import project.CourseMark;
 import project.PersonalInformation;
 
 /**
@@ -23,8 +22,12 @@ public class Student extends PersonalInformation{
     // Student's list of course marks.
     // Includes previously finished project.courses as well as currently enrolled project.courses.
     private List<CourseMark> courseMarks = new ArrayList<CourseMark>();
+
+    private List<CourseMark> finishedCourseMarks = new ArrayList<CourseMark>();
     
     private List<Course> availableCourses = new ArrayList<Course>();
+
+    
 
     // TODO: total CHs
 

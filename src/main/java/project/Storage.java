@@ -66,6 +66,9 @@ public class Storage {
 
             said.getCourseMark(programming1Course).finish();
             said.getCourseMark(embeddedCourse).finish();
+
+            teacherCSE.addCourse(programming1Course);
+            teacherCSE.addCourse(embeddedCourse);
         } catch (Exception e) {
             // TODO: handle exception
         }

@@ -13,6 +13,7 @@ public class Tests {
         List<Course> saidAvailableCourses = Storage.said.getAvailableCourses();
         String[] avavialbleCOursesString = Storage.said.getAvailableCourseStrings();
         String[] saidFinishedCourses = Storage.said.getFinishedCourseStrings();
+        String[] techerStrings = Storage.teacherCSE.getCourseStrings();
 
         /* for (String s : avavialbleCOursesString) {
             System.out.println(s);
@@ -24,9 +25,7 @@ public class Tests {
             System.out.println(course.getCourseName());
         } */
 
-        System.out.println("=======================");
-
-        for (String string : saidFinishedCourses) {
+        for (String string : techerStrings) {
             System.out.println(string);
         }
 

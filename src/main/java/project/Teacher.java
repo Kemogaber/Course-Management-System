@@ -9,6 +9,7 @@ import java.util.List;
 
 import project.courses.Course;
 import project.courses.Department;
+import project.courses.CourseMark;
 
 /**
  *
@@ -42,12 +43,27 @@ public class Teacher extends PersonalInformation {
         this.weeklyHours = weeklyHours;
     }
 
+    public List<Course> getCourses() {
+        return courses;
+    }
+
     public int getTotalStudents(){
         int studentsNum = 0;
         for (Course course : courses) {
             studentsNum += course.getStudents().size();
         }
         return studentsNum;
+    }
+
+    public String[] getCourseStrings(){
+
+        String[] coursesStrings = new String[courses.size()];
+
+        for (int i = 0; i < coursesStrings.length; i++) {
+            coursesStrings[i] = courses.get(i).getCourseName();
+        }
+        
+        return coursesStrings;
     }
 
     @Override

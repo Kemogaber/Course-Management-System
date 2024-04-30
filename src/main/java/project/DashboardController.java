@@ -133,7 +133,8 @@ public class DashboardController implements Initializable {
         tableview1.getItems().remove(selecteditem);
         combo2.setValue(selecteditem.getCourseName());
         FXMLDocumentController.LoggedInStudent.dropCourse(selecteditem);
-
+        combo1.getItems().remove(selecteditem.getCourseName());
+        combo1.setValue("");
     }
 
     @FXML
@@ -141,10 +142,11 @@ public class DashboardController implements Initializable {
 
         for (int i = 0; i < AvailableCourses.size(); i++) {
             if (combo2.getValue().equals(FXMLDocumentController.LoggedInStudent.getAvailableCourses().get(i).getCourseName())) {
+                combo1.getItems().add(FXMLDocumentController.LoggedInStudent.getAvailableCourses().get(i).getCourseName());
                 tableview1.getItems().add(FXMLDocumentController.LoggedInStudent.getAvailableCourses().get(i));
+                FXMLDocumentController.LoggedInStudent.addCourse(FXMLDocumentController.LoggedInStudent.getAvailableCourses().get(i));
                 combo2.getItems().remove(combo2.getValue());
                 combo2.setValue("");
-                FXMLDocumentController.LoggedInStudent.addCourse(FXMLDocumentController.LoggedInStudent.getAvailableCourses().get(i));
             }
         }
 

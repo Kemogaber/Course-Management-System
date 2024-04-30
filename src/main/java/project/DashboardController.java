@@ -1,6 +1,7 @@
 package project;
 
 import project.courses.Course;
+import project.courses.Student;
 
 import java.io.IOException;
 import java.net.URL;
@@ -83,8 +84,11 @@ public class DashboardController implements Initializable {
     @FXML
     private TableView<Course> tableview1;
 
-    static List<Course> AvailableCourses = FXMLDocumentController.LoggedInStudent.getAvailableCourses();
-    static List<CourseMark> FinishedCourses = FXMLDocumentController.LoggedInStudent.getCourseMarks();
+    static List<Course> AvailableCourses;
+    static List<CourseMark> FinishedCourses;
+
+    // TODO: REMOVE THIS.
+    //static Student LoggedInStudent;
 
     @FXML
     void Closewind(ActionEvent event) {
@@ -145,11 +149,31 @@ public class DashboardController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        //LoggedInStudent = Storage.said;
+        AvailableCourses = FXMLDocumentController.LoggedInStudent.getAvailableCourses();
+        FinishedCourses = FXMLDocumentController.LoggedInStudent.getCourseMarks(); 
+        
+        // Initialize available courses and empty courses.
+        AvailableCourses = FXMLDocumentController.LoggedInStudent.getAvailableCourses();
+        FinishedCourses = FXMLDocumentController.LoggedInStudent.getCourseMarks();
+        
+        if (FinishedCourses.size() == 0) {  // If no finished courses 
+            combo1.setValue("");            // Initialize the combo box to an empty string.
+        }
+        else {
+            combo1.setValue(FinishedCourses.get(0).getCourse().getCourseName());
+            combo1.getItems().addAll(FXMLDocumentController.LoggedInStudent.getFinishedCourseStrings());
+        }
+        
 
-        combo1.setValue(FinishedCourses.get(0).getCourse().getCourseName());
-        combo1.getItems().addAll(FXMLDocumentController.LoggedInStudent.getFinishedCourseStrings());
-        combo2.setValue(AvailableCourses.get(0).getCourseName());
-        combo2.getItems().addAll(FXMLDocumentController.LoggedInStudent.getAvailableCourseStrings());
+        if (AvailableCourses.size() == 0) {  // If no finished courses 
+            combo2.setValue("");             // Initialize the combo box to an empty string.
+        }
+        else {
+            combo2.setValue(AvailableCourses.get(0).getCourseName());
+            combo2.getItems().addAll(FXMLDocumentController.LoggedInStudent.getAvailableCourseStrings());
+        }
+        
 
         CourseNameColumn.setCellValueFactory(new PropertyValueFactory<Course, String>("courseName"));
         CHColumn.setCellValueFactory(new PropertyValueFactory<Course, Integer>("CH"));

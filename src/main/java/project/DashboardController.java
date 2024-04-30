@@ -191,9 +191,9 @@ public class DashboardController implements Initializable {
             @Override
             public void changed(ObservableValue observable, Object oldValue, Object newValue) {
                 for (int i = 0; i < combo1.getItems().size(); i++) {
-                    if ((newValue).equals((Object) FinishedCourses.get(i).getCourse().getCourseName())) {
-                        GpaBtn.setText(String.format("%.2f", FinishedCourses.get(i).getGradePoints()));
-                        CHBtn.setText(String.valueOf(FinishedCourses.get(i).getCourse().getCH()));
+                    if ((newValue).equals((Object)  FXMLDocumentController.LoggedInStudent.getFinishedCourseMarks().get(i).getCourse().getCourseName())) {
+                        GpaBtn.setText(String.format("%.2f", FXMLDocumentController.LoggedInStudent.getFinishedCourseMarks().get(i).getGradePoints()));
+                        CHBtn.setText(String.valueOf( FXMLDocumentController.LoggedInStudent.getFinishedCourseMarks().get(i).getCourse().getCH()));
                     }
                 }
             }

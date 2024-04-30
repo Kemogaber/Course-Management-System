@@ -21,11 +21,12 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import project.courses.CourseMark;
 
 public class TeacherController implements Initializable {
 
     @FXML
-    private TableColumn<?, ?> ActivitiesColumn;
+    private TableColumn<CourseMark, Integer> ActivitiesColumn;
 
     @FXML
     private TextField ActivitiesFld;
@@ -34,7 +35,7 @@ public class TeacherController implements Initializable {
     private Label DepartmentLabel;
 
     @FXML
-    private TableColumn<?, ?> FinalColumn;
+    private TableColumn<CourseMark, Integer> FinalColumn;
 
     @FXML
     private TextField FinalFld;
@@ -55,7 +56,7 @@ public class TeacherController implements Initializable {
     private Label SalaryLabel;
 
     @FXML
-    private TableColumn<?, ?> StudentNameColumn;
+    private TableColumn<CourseMark, String> StudentNameColumn;
 
     @FXML
     private Label TotalStudentsLabel;
@@ -85,7 +86,7 @@ public class TeacherController implements Initializable {
     private Button register;
 
     @FXML
-    private TableView<?> tableview;
+    private TableView<CourseMark> tableview;
 
     @FXML
     void AddCourse(ActionEvent event) {
@@ -135,12 +136,7 @@ public class TeacherController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //Student LoggedInStudent = Storage.said;
-
-        //List<Course> AvailableCourses = LoggedInStudent.getAvailableCourses();
-        //List<CourseMark> FinishedCourses = LoggedInStudent.getCourseMarks();
-        combo.setValue(Storage.said.getName());
-
+        
     }
 
 }

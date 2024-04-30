@@ -92,20 +92,12 @@
                           </columns>
                         </TableView>
                         <ChoiceBox fx:id="combo" layoutX="128.0" layoutY="56.0" prefHeight="20.0" prefWidth="149.0" />
-                        <Button fx:id="addBtn" layoutX="308.0" layoutY="113.0" mnemonicParsing="false" onAction="#AddCourse" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: #48fd54;" textFill="#48fd54">
+                        <Button fx:id="addBtn" layoutX="294.0" layoutY="55.0" mnemonicParsing="false" onAction="#AddCourse" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: #48fd54;" textFill="#48fd54">
                            <graphic>
 <!--                              <FontAwesomeIcon fill="WHITE" glyphName="PLUS" />-->
                            </graphic>
                            <graphic>
                               <FontAwesomeIconView fill="WHITE" glyphName="PLUS" />
-                           </graphic>
-                        </Button>
-                        <Button fx:id="dropBtn" layoutX="309.0" layoutY="146.0" mnemonicParsing="false" onAction="#DropCourse" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: #fd0505;" textFill="#fd0505">
-                           <graphic>
-<!--                              <FontAwesomeIcon fill="WHITE" glyphName="MINUS" />-->
-                           </graphic>
-                           <graphic>
-                              <FontAwesomeIconView fill="WHITE" glyphName="MINUS" />
                            </graphic>
                         </Button>
                         <TextField fx:id="ActivitiesFld" layoutX="127.0" layoutY="96.0" promptText="Enter Mark" />

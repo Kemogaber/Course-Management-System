@@ -19,14 +19,20 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import project.courses.Course;
 import project.courses.CourseMark;
+import project.courses.Student;
 
 public class TeacherController implements Initializable {
 
     @FXML
     private TableColumn<CourseMark, Integer> ActivitiesColumn;
+
+    @FXML
+    private Label ChangingUsername;
 
     @FXML
     private TextField ActivitiesFld;
@@ -44,7 +50,7 @@ public class TeacherController implements Initializable {
     private AnchorPane HomePane;
 
     @FXML
-    private TableColumn<?, ?> MidtermColumn;
+    private TableColumn<CourseMark, Integer> MidtermColumn;
 
     @FXML
     private TextField MidtermFld;
@@ -56,7 +62,7 @@ public class TeacherController implements Initializable {
     private Label SalaryLabel;
 
     @FXML
-    private TableColumn<CourseMark, String> StudentNameColumn;
+    private TableColumn<Student, String> StudentNameColumn;
 
     @FXML
     private Label TotalStudentsLabel;
@@ -74,9 +80,6 @@ public class TeacherController implements Initializable {
     private ChoiceBox<String> combo;
 
     @FXML
-    private Button dropBtn;
-
-    @FXML
     private Button home;
 
     @FXML
@@ -90,7 +93,7 @@ public class TeacherController implements Initializable {
 
     @FXML
     void AddCourse(ActionEvent event) {
-
+    Integer.valueOf( ActivitiesFld.getText());
     }
 
     @FXML
@@ -138,6 +141,10 @@ public class TeacherController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         combo.setValue(FXMLDocumentController.LoggedInTeacher.getCourseStrings()[0]);
         combo.getItems().addAll(FXMLDocumentController.LoggedInTeacher.getCourseStrings());
+        StudentNameColumn.setCellValueFactory(new PropertyValueFactory<Student, String>("name"));
+        ActivitiesColumn.setCellValueFactory(new PropertyValueFactory<CourseMark, Integer>("activitiesGrade"));
+        MidtermColumn.setCellValueFactory(new PropertyValueFactory<CourseMark, Integer>("midtermGrade"));
+        FinalColumn.setCellValueFactory(new PropertyValueFactory<CourseMark, Integer>("finalGrade"));
     }
 
 }

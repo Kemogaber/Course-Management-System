@@ -136,7 +136,8 @@ public class TeacherController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        combo.setValue(FXMLDocumentController.LoggedInTeacher.getCourseStrings()[0]);
+        combo.getItems().addAll(FXMLDocumentController.LoggedInTeacher.getCourseStrings());
     }
 
 }

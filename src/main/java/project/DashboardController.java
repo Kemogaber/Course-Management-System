@@ -131,17 +131,20 @@ public class DashboardController implements Initializable {
         Course selecteditem = tableview1.getSelectionModel().getSelectedItem();
         combo2.getItems().add(tableview1.getSelectionModel().getSelectedItem().getCourseName());
         tableview1.getItems().remove(selecteditem);
+        combo2.setValue(selecteditem.getCourseName());
         FXMLDocumentController.LoggedInStudent.dropCourse(selecteditem);
 
     }
 
     @FXML
-    void AddCourse(ActionEvent event) {
+    void AddCourse(ActionEvent event) throws Exception {
 
         for (int i = 0; i < AvailableCourses.size(); i++) {
-            if (combo2.getValue().equals(AvailableCourses.get(i).getCourseName())) {
-                tableview1.getItems().add(AvailableCourses.get(i));
+            if (combo2.getValue().equals(FXMLDocumentController.LoggedInStudent.getAvailableCourses().get(i).getCourseName())) {
+                tableview1.getItems().add(FXMLDocumentController.LoggedInStudent.getAvailableCourses().get(i));
                 combo2.getItems().remove(combo2.getValue());
+                combo2.setValue("");
+                FXMLDocumentController.LoggedInStudent.addCourse(FXMLDocumentController.LoggedInStudent.getAvailableCourses().get(i));
             }
         }
 

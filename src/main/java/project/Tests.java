@@ -8,9 +8,10 @@ public class Tests {
     public static void main(String[] args) throws Exception {
 
         List<Course> saidAvailableCourses = Storage.said.getAvailableCourses();
+        String[] avavialbleCOursesString = Storage.said.getAvailableCourseStrings();
 
-        for (Course course : saidAvailableCourses) {
-            System.out.println(course.getCourseName());
+        for (String s : avavialbleCOursesString) {
+            System.out.println(s);
         }
     }
 }

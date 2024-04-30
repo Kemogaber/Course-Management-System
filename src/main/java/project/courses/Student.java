@@ -97,21 +97,24 @@ public class Student extends PersonalInformation{
 
         int length = 0;
         int i=0;
+        
 
-
-        for (CourseMark courseMark : courseMarks) {
-            length = (!courseMark.isFinished())?length+1:length;
-        }
-
-        String[] finishedCourses = new String[length];
-        for (CourseMark courseMark : courseMarks) {
-            if (!courseMark.isFinished()) {
-                finishedCourses[i]= courseMark.getCourse().getCourseName();
-                i++;
+        for (Course course : department.getCourses()) {
+            if (!this.hasCourse(course)) {
+                length++;
             }
         }
         
-        return finishedCourses;
+        String[] availableCourses = new String[length];
+
+        for (Course course : department.getCourses()) {
+            if (!this.hasCourse(course)) {
+                availableCourses[i] = course.getCourseName();
+                i++;
+            }
+        }
+
+        return availableCourses;
     }
 
     @Override

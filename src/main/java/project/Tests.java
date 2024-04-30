@@ -8,17 +8,13 @@ public class Tests {
     public static void main(String[] args) throws Exception {
 
 
-        Storage.said.addCourse(Storage.programming1Course);
-        Storage.said.addCourse(Storage.embeddedCourse);
-
-        Storage.said.getCourseMark(Storage.programming1Course).finish();
-        Storage.said.getCourseMark(Storage.embeddedCourse).finish();
+        Storage.updateSimulation();
 
         List<Course> saidAvailableCourses = Storage.said.getAvailableCourses();
         String[] avavialbleCOursesString = Storage.said.getAvailableCourseStrings();
         String[] saidFinishedCourses = Storage.said.getFinishedCourseStrings();
 
-        for (String s : avavialbleCOursesString) {
+        /* for (String s : avavialbleCOursesString) {
             System.out.println(s);
         }
 
@@ -26,7 +22,7 @@ public class Tests {
 
         for (Course course : saidAvailableCourses) {
             System.out.println(course.getCourseName());
-        }
+        } */
 
         System.out.println("=======================");
 

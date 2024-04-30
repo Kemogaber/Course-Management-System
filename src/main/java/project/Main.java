@@ -20,6 +20,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException  {
+        Storage.updateSimulation(); // Updates data in storage
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("FXML.fxml"));
         Scene scene = new Scene(root);
         root.setOnMousePressed((MouseEvent event) -> {

@@ -141,7 +141,7 @@ public class DashboardController implements Initializable {
     @FXML
     void AddCourse(ActionEvent event) throws Exception {
 
-        for (int i = 0; i < AvailableCourses.size(); i++) {
+        for (int i = 0; i < FXMLDocumentController.LoggedInStudent.getAvailableCourses().size(); i++) {
             if (combo2.getValue().equals(FXMLDocumentController.LoggedInStudent.getAvailableCourses().get(i).getCourseName())) {
                 combo1.getItems().add(FXMLDocumentController.LoggedInStudent.getAvailableCourses().get(i).getCourseName());
                 tableview1.getItems().add(FXMLDocumentController.LoggedInStudent.getAvailableCourses().get(i));
@@ -191,9 +191,9 @@ public class DashboardController implements Initializable {
             @Override
             public void changed(ObservableValue observable, Object oldValue, Object newValue) {
                 for (int i = 0; i < combo1.getItems().size(); i++) {
-                    if ((newValue).equals((Object)  FXMLDocumentController.LoggedInStudent.getFinishedCourseMarks().get(i).getCourse().getCourseName())) {
-                        GpaBtn.setText(String.format("%.2f", FXMLDocumentController.LoggedInStudent.getFinishedCourseMarks().get(i).getGradePoints()));
-                        CHBtn.setText(String.valueOf( FXMLDocumentController.LoggedInStudent.getFinishedCourseMarks().get(i).getCourse().getCH()));
+                    if ((newValue).equals((Object)  FXMLDocumentController.LoggedInStudent.getCourseMarks().get(i).getCourse().getCourseName())) {
+                        GpaBtn.setText(String.format("%.2f", FXMLDocumentController.LoggedInStudent.getCourseMarks().get(i).getGradePoints()));
+                        CHBtn.setText(String.valueOf( FXMLDocumentController.LoggedInStudent.getCourseMarks().get(i).getCourse().getCH()));
                     }
                 }
             }

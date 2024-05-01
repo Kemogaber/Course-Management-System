@@ -93,7 +93,9 @@ public class TeacherController implements Initializable {
 
     @FXML
     void AddCourse(ActionEvent event) {
-    Integer.valueOf( ActivitiesFld.getText());
+        CourseMark StudentMarkSet=tableview.getSelectionModel().getSelectedItem();
+        StudentMarkSet.setActivitiesGrade(Integer.valueOf( ActivitiesFld.getText()));
+        System.out.println(StudentMarkSet.getActivitiesGrade());
     }
 
     @FXML
@@ -101,10 +103,6 @@ public class TeacherController implements Initializable {
         close.getScene().getWindow().hide();
     }
 
-    @FXML
-    void DropCourse(ActionEvent event) {
-
-    }
 
     @FXML
     void LogOut(ActionEvent event) throws IOException {
@@ -141,10 +139,12 @@ public class TeacherController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         combo.setValue(FXMLDocumentController.LoggedInTeacher.getCourseStrings()[0]);
         combo.getItems().addAll(FXMLDocumentController.LoggedInTeacher.getCourseStrings());
-        StudentNameColumn.setCellValueFactory(new PropertyValueFactory<Student, String>("name"));
+        //StudentNameColumn.setCellValueFactory(new PropertyValueFactory<Student, String>("name"));
         ActivitiesColumn.setCellValueFactory(new PropertyValueFactory<CourseMark, Integer>("activitiesGrade"));
         MidtermColumn.setCellValueFactory(new PropertyValueFactory<CourseMark, Integer>("midtermGrade"));
         FinalColumn.setCellValueFactory(new PropertyValueFactory<CourseMark, Integer>("finalGrade"));
+        tableview.getItems().add(Storage.said.getCourseMarks().get(0));
+
     }
 
 }

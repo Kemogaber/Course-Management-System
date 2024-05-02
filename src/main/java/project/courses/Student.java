@@ -152,6 +152,14 @@ public class Student extends PersonalInformation{
         return points/creditHours;
     }
 
+    public int getTotalCH(){
+        int CH = 0;
+        for (CourseMark courseMark : courseMarks) {
+            CH += courseMark.getCourse().getCH();
+        }
+        return CH;
+    }
+
     @Override
     public String toString() {
         return super.toString() + "\n" + "Year: " + year + "\n--------------------";

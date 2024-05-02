@@ -44,6 +44,7 @@ public class Storage {
     // Define some students====================================================================================
 
     public static Student said = new Student("Ahmed Said", 2101546, "said", "Junior", cseDepartment);
+    public static Student kareem = new Student("Kareem Gaber", 2101545, "kareem", "Junior", cseDepartment);
     public static Student hesham = new Student("Hesham Nabil", 2101000, "hesham", "Junior", eceDepartment);
     public static Student mohamed = new Student("Mohamed Awad", 2100500, "mohamed", "Junior", cseDepartment);
 
@@ -66,6 +67,12 @@ public class Storage {
 
             said.getCourseMark(programming1Course).finish();
             said.getCourseMark(embeddedCourse).finish();
+
+            kareem.addCourse(programming1Course);
+            kareem.addCourse(embeddedCourse);
+
+            kareem.getCourseMark(programming1Course).finish();
+            kareem.getCourseMark(embeddedCourse).finish();
 
             teacherCSE.addCourse(programming1Course);
             teacherCSE.addCourse(embeddedCourse);

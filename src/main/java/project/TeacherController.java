@@ -147,6 +147,11 @@ public class TeacherController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        SalaryLabel.setText(String.format("%.2f",FXMLDocumentController.LoggedInTeacher.getSalary()));
+        DepartmentLabel.setText(FXMLDocumentController.LoggedInTeacher.getDepartment().getDepartementName());
+        WeeklyHoursLabel.setText(String.valueOf(FXMLDocumentController.LoggedInTeacher.getWeeklyHours()));
+        TotalStudentsLabel.setText(String.valueOf(FXMLDocumentController.LoggedInTeacher.getTotalStudents()));
+        ChangingUsername.setText(FXMLDocumentController.LoggedInTeacher.getName());
         combo.setValue(FXMLDocumentController.LoggedInTeacher.getCourseStrings()[0]);
         combo.getItems().addAll(FXMLDocumentController.LoggedInTeacher.getCourseStrings());
         StudentNameColumn.setCellValueFactory(new PropertyValueFactory<CourseMark, String>("StudentName"));
@@ -162,8 +167,8 @@ public class TeacherController implements Initializable {
             @Override
             public void changed(ObservableValue observable, Object oldValue, Object newValue) {
                 for (int i = 0; i < combo.getItems().size(); i++) {
-                    tableview.getItems().clear();
                     if ((newValue).equals((Object)  FXMLDocumentController.LoggedInTeacher.getCourses().get(i).getCourseName())) {
+                        tableview.getItems().clear();
                         tableview.getItems().addAll(FXMLDocumentController.LoggedInTeacher.getCourses().get(i).getCourseMarks());
                     }
                 }

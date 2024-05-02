@@ -26,12 +26,11 @@
                                     <Font name="Tahoma" size="14.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="TotalStudentsLabel" alignment="CENTER_RIGHT" layoutX="93.0" layoutY="33.0" prefHeight="20.0" prefWidth="65.0" text="0" textFill="#0598ff">
+                              <Label fx:id="TotalStudentsLabel" alignment="CENTER" layoutX="52.0" layoutY="43.0" prefHeight="20.0" prefWidth="65.0" text="0" textFill="#0598ff">
                                  <font>
                                     <Font name="Tahoma" size="24.0" />
                                  </font>
                               </Label>
-                              <FontAwesomeIconView fill="#0598ff" glyphName="BOOK_MARK" layoutX="10.0" layoutY="60.0" size="3em" text="" />
                            </children>
                         </AnchorPane>
                         <AnchorPane layoutX="200.0" layoutY="68.0" prefHeight="147.0" prefWidth="169.0" style="-fx-border-color: #0598ff; -fx-border-width: 0px 1px 1px 1px;">
@@ -42,7 +41,7 @@
                                  </font>
                               </Label>
 <!--                              <FontAwesomeIcon fill="#0598ff" glyphName="CHECK" layoutX="11.0" layoutY="59.0" size="3em" />-->
-                              <Label fx:id="DepartmentLabel" alignment="CENTER_RIGHT" layoutX="88.0" layoutY="33.0" prefHeight="20.0" prefWidth="65.0" text="0.00" textFill="#0598ff">
+                              <Label fx:id="DepartmentLabel" alignment="CENTER" layoutX="52.0" layoutY="44.0" prefHeight="20.0" prefWidth="65.0" textFill="#0598ff">
                                  <font>
                                     <Font name="Tahoma" size="24.0" />
                                  </font>
@@ -56,7 +55,7 @@
                                     <Font name="Tahoma" size="14.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="WeeklyHoursLabel" alignment="CENTER_RIGHT" layoutX="93.0" layoutY="33.0" prefHeight="20.0" prefWidth="65.0" text="0" textFill="#0598ff">
+                              <Label fx:id="WeeklyHoursLabel" alignment="CENTER" layoutX="52.0" layoutY="44.0" prefHeight="20.0" prefWidth="65.0" text="0" textFill="#0598ff">
                                  <font>
                                     <Font name="Tahoma" size="24.0" />
                                  </font>
@@ -72,7 +71,7 @@
                                  </font>
                               </Label>
 <!--                              <FontAwesomeIcon fill="#0598ff" glyphName="BAR_CHART" layoutX="11.0" layoutY="59.0" size="3em" />-->
-                              <Label fx:id="SalaryLabel" alignment="CENTER_RIGHT" layoutX="88.0" layoutY="33.0" prefHeight="20.0" prefWidth="65.0" text="0.00" textFill="#0598ff">
+                              <Label fx:id="SalaryLabel" alignment="CENTER" layoutX="14.0" layoutY="44.0" prefHeight="30.0" prefWidth="150.0" text="0.00" textFill="#0598ff">
                                  <font>
                                     <Font name="Tahoma" size="24.0" />
                                  </font>
@@ -128,7 +127,7 @@
                   <AnchorPane layoutX="2.0" layoutY="4.0" prefHeight="401.0" prefWidth="217.0" style="-fx-background-color: #0598ff;">
                      <children>
                         <FontAwesomeIconView fill="WHITE" glyphName="USER" layoutX="73.0" layoutY="152.0" size="8em" text="" />
-                        <Label fx:id="ChangingUsername" layoutX="52.0" layoutY="171.0" text="Kareem Gaber" textFill="WHITE">
+                        <Label fx:id="ChangingUsername" alignment="CENTER" layoutX="43.0" layoutY="174.0" prefHeight="20.0" prefWidth="131.0" text="Kareem Gaber" textFill="WHITE">
                            <font>
                               <Font name="Tahoma Bold" size="16.0" />
                            </font>

@@ -62,7 +62,7 @@ public class TeacherController implements Initializable {
     private Label SalaryLabel;
 
     @FXML
-    private TableColumn<Student, String> StudentNameColumn;
+    private TableColumn<CourseMark, String> StudentNameColumn;
 
     @FXML
     private Label TotalStudentsLabel;
@@ -93,11 +93,11 @@ public class TeacherController implements Initializable {
 
     @FXML
     void AddCourse(ActionEvent event) {
-        CourseMark StudentMarkSet=tableview.getSelectionModel().getSelectedItem();
-        StudentMarkSet.setActivitiesGrade(Integer.valueOf( ActivitiesFld.getText()));
+       /* CourseMark StudentMarkSet=tableview.getSelectionModel().getSelectedItem();
+        //StudentMarkSet.setActivitiesGrade(Integer.valueOf( ActivitiesFld.getText()));
         StudentMarkSet.setFinalGrade(Integer.valueOf(FinalFld.getText()));
         StudentMarkSet.setMidtermGrade(Integer.valueOf(MidtermFld.getText()));
-        System.out.println(StudentMarkSet.toString());
+        System.out.println(StudentMarkSet.toString());*/
     }
 
     @FXML
@@ -141,12 +141,15 @@ public class TeacherController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         combo.setValue(FXMLDocumentController.LoggedInTeacher.getCourseStrings()[0]);
         combo.getItems().addAll(FXMLDocumentController.LoggedInTeacher.getCourseStrings());
-        //StudentNameColumn.setCellValueFactory(new PropertyValueFactory<Student, String>("name"));
+        StudentNameColumn.setCellValueFactory(new PropertyValueFactory<CourseMark, String>("StudentName"));
         ActivitiesColumn.setCellValueFactory(new PropertyValueFactory<CourseMark, Integer>("activitiesGrade"));
         MidtermColumn.setCellValueFactory(new PropertyValueFactory<CourseMark, Integer>("midtermGrade"));
         FinalColumn.setCellValueFactory(new PropertyValueFactory<CourseMark, Integer>("finalGrade"));
-        tableview.getItems().add(Storage.said.getCourseMarks().get(1));
-
+        for(int i=0;i<FXMLDocumentController.LoggedInTeacher.getCourses().size();i++){
+        if (combo.getValue().equals(FXMLDocumentController.LoggedInTeacher.getCourses().get(i))){
+        tableview.getItems().addAll(FXMLDocumentController.LoggedInTeacher.getCourses().get(i).getCourseMarks());
+        }
+    }
     }
 
 }

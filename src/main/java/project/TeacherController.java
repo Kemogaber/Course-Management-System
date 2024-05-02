@@ -5,6 +5,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
+
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -144,6 +147,11 @@ public class TeacherController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        SalaryLabel.setText(String.format("%.2f",FXMLDocumentController.LoggedInTeacher.getSalary()));
+        DepartmentLabel.setText(FXMLDocumentController.LoggedInTeacher.getDepartment().getDepartementName());
+        WeeklyHoursLabel.setText(String.valueOf(FXMLDocumentController.LoggedInTeacher.getWeeklyHours()));
+        TotalStudentsLabel.setText(String.valueOf(FXMLDocumentController.LoggedInTeacher.getTotalStudents()));
+        ChangingUsername.setText(FXMLDocumentController.LoggedInTeacher.getName());
         combo.setValue(FXMLDocumentController.LoggedInTeacher.getCourseStrings()[0]);
         combo.getItems().addAll(FXMLDocumentController.LoggedInTeacher.getCourseStrings());
         StudentNameColumn.setCellValueFactory(new PropertyValueFactory<CourseMark, String>("StudentName"));
@@ -154,6 +162,18 @@ public class TeacherController implements Initializable {
         if (combo.getValue().equals(FXMLDocumentController.LoggedInTeacher.getCourses().get(i).getCourseName())){
         tableview.getItems().addAll(FXMLDocumentController.LoggedInTeacher.getCourses().get(i).getCourseMarks());
         }
+              combo.getSelectionModel().selectedItemProperty().addListener(
+                new ChangeListener() {
+            @Override
+            public void changed(ObservableValue observable, Object oldValue, Object newValue) {
+                for (int i = 0; i < combo.getItems().size(); i++) {
+                    if ((newValue).equals((Object)  FXMLDocumentController.LoggedInTeacher.getCourses().get(i).getCourseName())) {
+                        tableview.getItems().clear();
+                        tableview.getItems().addAll(FXMLDocumentController.LoggedInTeacher.getCourses().get(i).getCourseMarks());
+                    }
+                }
+            }
+        });
     }
     }
 

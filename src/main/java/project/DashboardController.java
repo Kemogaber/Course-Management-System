@@ -183,7 +183,14 @@ public class DashboardController implements Initializable {
             combo2.getItems().addAll(FXMLDocumentController.LoggedInStudent.getAvailableCourseStrings());
         }
         
-
+        for(int i=0;i<FXMLDocumentController.LoggedInStudent.getCourseMarks().size();i++){
+            if (combo1.getValue().equals(FXMLDocumentController.LoggedInStudent.getCourseMarks().get(i).getCourse().getCourseName())){
+                CHBtn.setText(String.valueOf(FXMLDocumentController.LoggedInStudent.getCourseMarks().get(i).getCourse().getCH()));
+                GpaBtn.setText(String.valueOf(FXMLDocumentController.LoggedInStudent.getCourseMarks().get(i).getGradePoints()));
+                TotalGpaBtn.setText(String.valueOf(FXMLDocumentController.LoggedInStudent.getGPA()));
+            } 
+        }
+        
         CourseNameColumn.setCellValueFactory(new PropertyValueFactory<Course, String>("courseName"));
         CHColumn.setCellValueFactory(new PropertyValueFactory<Course, Integer>("CH"));
         CodeColumn.setCellValueFactory(new PropertyValueFactory<Course, String>("code"));

@@ -10,10 +10,7 @@ public class Tests {
 
         Storage.updateSimulation();
 
-        List<Course> saidAvailableCourses = Storage.said.getAvailableCourses();
-        String[] avavialbleCOursesString = Storage.said.getAvailableCourseStrings();
-        String[] saidFinishedCourses = Storage.said.getFinishedCourseStrings();
-        String[] techerStrings = Storage.teacherCSE.getCourseStrings();
+        String name =  Storage.said.getCourseMark(Storage.embeddedCourse).getStudentName();
 
         /* for (String s : avavialbleCOursesString) {
             System.out.println(s);
@@ -25,9 +22,6 @@ public class Tests {
             System.out.println(course.getCourseName());
         } */
 
-        for (String string : techerStrings) {
-            System.out.println(string);
-        }
-
+        System.out.println(Storage.embeddedCourse.getCourseMarks().get(0).getStudent().getName());
     }
 }

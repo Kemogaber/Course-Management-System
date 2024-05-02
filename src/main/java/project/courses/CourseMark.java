@@ -8,10 +8,12 @@ public class CourseMark {
     private int activitiesGrade = 0;
     private boolean isFinished = false;
     private Student student;
+    private String studentName;
 
     public CourseMark(Course course, Student student){
         this.course = course;
         this.student = student;
+        studentName = student.getName();
     }
 
     public void setFinalGrade(int finalGrade) {
@@ -40,6 +42,10 @@ public class CourseMark {
 
     public Student getStudent() {
         return student;
+    }
+
+    public String getStudentName() {
+        return studentName;
     }
 
     // Finish a course and make it uneditable.
@@ -76,6 +82,10 @@ public class CourseMark {
             return 2.0;
         } else if (totalMark >= 67) {
             return 1.7;
+        } else if (totalMark >= 64) {
+            return 1.3;
+        } else if (totalMark >= 60) {
+            return 1.0;
         }
         return 0;
     }

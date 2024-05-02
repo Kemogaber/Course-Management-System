@@ -11,6 +11,7 @@ public class Course {
     private String code;
     private int CH;
     private List<Student> students = new ArrayList<Student>();
+
     // TODO: determine if this is needed.
     private Teacher teacher;
     
@@ -40,6 +41,21 @@ public class Course {
 
     public List<Student> getStudents() {
         return students;
+    }
+
+    // Returns the course marks for all the students in this course.
+    public List<CourseMark> getCourseMarks() {
+        List<CourseMark> courseMarks = new ArrayList<CourseMark>();
+
+        for (Student student : students) {
+            try {
+                courseMarks.add(student.getCourseMark(this));
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
+        return courseMarks;
     }
 
     // Add a student to Course.students

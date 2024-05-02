@@ -188,6 +188,7 @@ public class DashboardController implements Initializable {
                 GpaBtn.setText(String.valueOf(FXMLDocumentController.LoggedInStudent.getCourseMarks().get(i).getGradePoints()));
                 TotalGpaBtn.setText(String.valueOf(FXMLDocumentController.LoggedInStudent.getGPA()));
             } 
+        }
            
 
 

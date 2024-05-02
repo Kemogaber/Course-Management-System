@@ -93,11 +93,16 @@ public class TeacherController implements Initializable {
 
     @FXML
     void AddCourse(ActionEvent event) {
-       /* CourseMark StudentMarkSet=tableview.getSelectionModel().getSelectedItem();
-        //StudentMarkSet.setActivitiesGrade(Integer.valueOf( ActivitiesFld.getText()));
-        StudentMarkSet.setFinalGrade(Integer.valueOf(FinalFld.getText()));
-        StudentMarkSet.setMidtermGrade(Integer.valueOf(MidtermFld.getText()));
-        System.out.println(StudentMarkSet.toString());*/
+        tableview.getSelectionModel().getSelectedItem().setActivitiesGrade(Integer.valueOf( ActivitiesFld.getText()));
+        tableview.getSelectionModel().getSelectedItem().setFinalGrade(Integer.valueOf(FinalFld.getText()));
+        tableview.getSelectionModel().getSelectedItem().setMidtermGrade(Integer.valueOf(MidtermFld.getText()));
+        System.out.println(tableview.getSelectionModel().getSelectedItem().getStudentName() + " " + tableview.getSelectionModel().getSelectedItem().getActivitiesGrade() + " " + tableview.getSelectionModel().getSelectedItem().getMidtermGrade() + " " + tableview.getSelectionModel().getSelectedItem().getFinalGrade());
+        tableview.getItems().clear();
+        for(int i=0;i<FXMLDocumentController.LoggedInTeacher.getCourses().size();i++){
+            if (combo.getValue().equals(FXMLDocumentController.LoggedInTeacher.getCourses().get(i).getCourseName())){
+            tableview.getItems().addAll(FXMLDocumentController.LoggedInTeacher.getCourses().get(i).getCourseMarks());
+            }
+        }
     }
 
     @FXML

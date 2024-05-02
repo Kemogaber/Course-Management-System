@@ -56,9 +56,6 @@ public class DashboardController implements Initializable {
     private AnchorPane HomePane;
 
     @FXML
-    private Label ChangingUsername;
-
-    @FXML
     private AnchorPane RegisterPane;
 
     @FXML
@@ -165,7 +162,7 @@ public class DashboardController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //LoggedInStudent = Storage.said;
+        ChangeUsername.setText(FXMLDocumentController.LoggedInStudent.getName());
         AvailableCourses = FXMLDocumentController.LoggedInStudent.getAvailableCourses();
         FinishedCourses = FXMLDocumentController.LoggedInStudent.getCourseMarks(); 
         
@@ -194,7 +191,7 @@ public class DashboardController implements Initializable {
             if (combo1.getValue().equals(FXMLDocumentController.LoggedInStudent.getCourseMarks().get(i).getCourse().getCourseName())){
                 CHBtn.setText(String.valueOf(FXMLDocumentController.LoggedInStudent.getCourseMarks().get(i).getCourse().getCH()));
                 GpaBtn.setText(String.valueOf(FXMLDocumentController.LoggedInStudent.getCourseMarks().get(i).getGradePoints()));
-                TotalGpaBtn.setText(String.valueOf(FXMLDocumentController.LoggedInStudent.getGPA()));
+                TotalGpaBtn.setText(String.format("%.2f",FXMLDocumentController.LoggedInStudent.getGPA()));
                 CHview.setText(String.valueOf(FXMLDocumentController.LoggedInStudent.getTotalCH()));
             } 
         }

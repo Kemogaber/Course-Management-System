@@ -56,6 +56,9 @@ public class DashboardController implements Initializable {
     private AnchorPane HomePane;
 
     @FXML
+    private Label ChangingUsername;
+
+    @FXML
     private AnchorPane RegisterPane;
 
     @FXML
@@ -162,7 +165,7 @@ public class DashboardController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        ChangeUsername.setText(FXMLDocumentController.LoggedInStudent.getName());
+        //LoggedInStudent = Storage.said;
         AvailableCourses = FXMLDocumentController.LoggedInStudent.getAvailableCourses();
         FinishedCourses = FXMLDocumentController.LoggedInStudent.getCourseMarks(); 
         

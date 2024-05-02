@@ -146,7 +146,7 @@ public class TeacherController implements Initializable {
         MidtermColumn.setCellValueFactory(new PropertyValueFactory<CourseMark, Integer>("midtermGrade"));
         FinalColumn.setCellValueFactory(new PropertyValueFactory<CourseMark, Integer>("finalGrade"));
         for(int i=0;i<FXMLDocumentController.LoggedInTeacher.getCourses().size();i++){
-        if (combo.getValue().equals(FXMLDocumentController.LoggedInTeacher.getCourses().get(i))){
+        if (combo.getValue().equals(FXMLDocumentController.LoggedInTeacher.getCourses().get(i).getCourseName())){
         tableview.getItems().addAll(FXMLDocumentController.LoggedInTeacher.getCourses().get(i).getCourseMarks());
         }
     }

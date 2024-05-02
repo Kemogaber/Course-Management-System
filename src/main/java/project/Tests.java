@@ -22,6 +22,6 @@ public class Tests {
             System.out.println(course.getCourseName());
         } */
 
-        System.out.println(Storage.embeddedCourse.getCourseMarks().get(0).getStudent().getName());
+        System.out.println(Storage.said.getTotalCH());
     }
 }

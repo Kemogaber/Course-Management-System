@@ -35,6 +35,9 @@ public class DashboardController implements Initializable {
     private Label CHBtn;
 
     @FXML
+    private Label ChangeUsername;
+
+    @FXML
     private TableColumn<Course, Integer> CHColumn;
 
     @FXML
@@ -136,6 +139,8 @@ public class DashboardController implements Initializable {
         FXMLDocumentController.LoggedInStudent.dropCourse(selecteditem);
         combo1.getItems().remove(selecteditem.getCourseName());
         combo1.setValue("");
+        TotalGpaBtn.setText(String.valueOf(FXMLDocumentController.LoggedInStudent.getGPA()));
+        CHview.setText(String.valueOf(FXMLDocumentController.LoggedInStudent.getTotalCH()));
     }
 
     @FXML
@@ -150,12 +155,14 @@ public class DashboardController implements Initializable {
                 combo2.setValue("");
             }
         }
+        TotalGpaBtn.setText(String.valueOf(FXMLDocumentController.LoggedInStudent.getGPA()));
+        CHview.setText(String.valueOf(FXMLDocumentController.LoggedInStudent.getTotalCH()));
 
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //LoggedInStudent = Storage.said;
+        ChangeUsername.setText(FXMLDocumentController.LoggedInStudent.getName());
         AvailableCourses = FXMLDocumentController.LoggedInStudent.getAvailableCourses();
         FinishedCourses = FXMLDocumentController.LoggedInStudent.getCourseMarks(); 
         
@@ -185,6 +192,7 @@ public class DashboardController implements Initializable {
                 CHBtn.setText(String.valueOf(FXMLDocumentController.LoggedInStudent.getCourseMarks().get(i).getCourse().getCH()));
                 GpaBtn.setText(String.valueOf(FXMLDocumentController.LoggedInStudent.getCourseMarks().get(i).getGradePoints()));
                 TotalGpaBtn.setText(String.valueOf(FXMLDocumentController.LoggedInStudent.getGPA()));
+                CHview.setText(String.valueOf(FXMLDocumentController.LoggedInStudent.getTotalCH()));
             } 
         }
         

@@ -95,7 +95,9 @@ public class TeacherController implements Initializable {
     void AddCourse(ActionEvent event) {
         CourseMark StudentMarkSet=tableview.getSelectionModel().getSelectedItem();
         StudentMarkSet.setActivitiesGrade(Integer.valueOf( ActivitiesFld.getText()));
-        System.out.println(StudentMarkSet.getActivitiesGrade());
+        StudentMarkSet.setFinalGrade(Integer.valueOf(FinalFld.getText()));
+        StudentMarkSet.setMidtermGrade(Integer.valueOf(MidtermFld.getText()));
+        System.out.println(StudentMarkSet.toString());
     }
 
     @FXML
@@ -143,7 +145,7 @@ public class TeacherController implements Initializable {
         ActivitiesColumn.setCellValueFactory(new PropertyValueFactory<CourseMark, Integer>("activitiesGrade"));
         MidtermColumn.setCellValueFactory(new PropertyValueFactory<CourseMark, Integer>("midtermGrade"));
         FinalColumn.setCellValueFactory(new PropertyValueFactory<CourseMark, Integer>("finalGrade"));
-        tableview.getItems().add(Storage.said.getCourseMarks().get(0));
+        tableview.getItems().add(Storage.said.getCourseMarks().get(1));
 
     }
 

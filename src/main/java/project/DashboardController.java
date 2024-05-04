@@ -163,8 +163,8 @@ public class DashboardController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ChangeUsername.setText(FXMLDocumentController.LoggedInStudent.getName());
-        AvailableCourses = FXMLDocumentController.LoggedInStudent.getAvailableCourses();
-        FinishedCourses = FXMLDocumentController.LoggedInStudent.getCourseMarks(); 
+        /* AvailableCourses = FXMLDocumentController.LoggedInStudent.getAvailableCourses();
+        FinishedCourses = FXMLDocumentController.LoggedInStudent.getCourseMarks(); */ 
         
         // Initialize available courses and empty courses.
         AvailableCourses = FXMLDocumentController.LoggedInStudent.getAvailableCourses();
@@ -175,7 +175,7 @@ public class DashboardController implements Initializable {
         }
         else {
             combo1.setValue(FinishedCourses.get(0).getCourse().getCourseName());
-            combo1.getItems().addAll(FXMLDocumentController.LoggedInStudent.getFinishedCourseStrings());
+            combo1.getItems().addAll(FXMLDocumentController.LoggedInStudent.getCourseMarkStrings());
         }
         
 

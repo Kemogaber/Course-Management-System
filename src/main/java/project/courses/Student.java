@@ -80,6 +80,16 @@ public class Student extends PersonalInformation{
         }
     }
 
+    public String[] getCourseMarkStrings(){
+        String[] courseMarksStrings = new String[courseMarks.size()];
+
+        for (int i = 0; i < courseMarksStrings.length; i++) {
+            courseMarksStrings[i] = courseMarks.get(i).getCourse().getCourseName();
+        }
+        
+        return courseMarksStrings;
+    }
+
     public String[] getFinishedCourseStrings(){
 
         String[] finishedCoursesString = new String[finishedCourseMarks.size()];

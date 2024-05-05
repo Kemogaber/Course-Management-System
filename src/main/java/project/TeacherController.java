@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -25,14 +26,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import project.courses.Course;
 import project.courses.CourseMark;
-import project.courses.Student;
+import project.courses.InProgressCourseMark;
 
 public class TeacherController implements Initializable {
 
     @FXML
-    private TableColumn<CourseMark, Integer> ActivitiesColumn;
+    private TableColumn<InProgressCourseMark, Integer> ActivitiesColumn;
 
     @FXML
     private Label ChangingUsername;
@@ -44,7 +44,7 @@ public class TeacherController implements Initializable {
     private Label DepartmentLabel;
 
     @FXML
-    private TableColumn<CourseMark, Integer> FinalColumn;
+    private TableColumn<InProgressCourseMark, Integer> FinalColumn;
 
     @FXML
     private TextField FinalFld;
@@ -53,7 +53,7 @@ public class TeacherController implements Initializable {
     private AnchorPane HomePane;
 
     @FXML
-    private TableColumn<CourseMark, Integer> MidtermColumn;
+    private TableColumn<InProgressCourseMark, Integer> MidtermColumn;
 
     @FXML
     private TextField MidtermFld;
@@ -65,7 +65,7 @@ public class TeacherController implements Initializable {
     private Label SalaryLabel;
 
     @FXML
-    private TableColumn<CourseMark, String> StudentNameColumn;
+    private TableColumn<InProgressCourseMark, String> StudentNameColumn;
 
     @FXML
     private Label TotalStudentsLabel;
@@ -92,18 +92,18 @@ public class TeacherController implements Initializable {
     private Button register;
 
     @FXML
-    private TableView<CourseMark> tableview;
+    private TableView<InProgressCourseMark> tableview;
 
     @FXML
     void AddCourse(ActionEvent event) {
         tableview.getSelectionModel().getSelectedItem().setActivitiesGrade(Integer.valueOf( ActivitiesFld.getText()));
         tableview.getSelectionModel().getSelectedItem().setFinalGrade(Integer.valueOf(FinalFld.getText()));
         tableview.getSelectionModel().getSelectedItem().setMidtermGrade(Integer.valueOf(MidtermFld.getText()));
-        System.out.println(tableview.getSelectionModel().getSelectedItem().getStudentName() + " " + tableview.getSelectionModel().getSelectedItem().getActivitiesGrade() + " " + tableview.getSelectionModel().getSelectedItem().getMidtermGrade() + " " + tableview.getSelectionModel().getSelectedItem().getFinalGrade());
+        System.out.println(tableview.getSelectionModel().getSelectedItem().getStudent().getName() + " " + tableview.getSelectionModel().getSelectedItem().getActivitiesGrade() + " " + tableview.getSelectionModel().getSelectedItem().getMidtermGrade() + " " + tableview.getSelectionModel().getSelectedItem().getFinalGrade());
         tableview.getItems().clear();
         for(int i=0;i<FXMLDocumentController.LoggedInTeacher.getCourses().size();i++){
             if (combo.getValue().equals(FXMLDocumentController.LoggedInTeacher.getCourses().get(i).getCourseName())){
-            tableview.getItems().addAll(FXMLDocumentController.LoggedInTeacher.getCourses().get(i).getCourseMarks());
+            tableview.getItems().addAll(FXMLDocumentController.LoggedInTeacher.getCourses().get(i).getCourseMarks().stream().filter(p -> p instanceof InProgressCourseMark).map(p -> (InProgressCourseMark) p).collect(Collectors.toList()));
             }
         }
     }
@@ -148,19 +148,19 @@ public class TeacherController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         SalaryLabel.setText(String.format("%.2f",FXMLDocumentController.LoggedInTeacher.getSalary()));
-        DepartmentLabel.setText(FXMLDocumentController.LoggedInTeacher.getDepartment().getDepartementName());
+        DepartmentLabel.setText(FXMLDocumentController.LoggedInTeacher.getDepartment().getDepartmentName());
         WeeklyHoursLabel.setText(String.valueOf(FXMLDocumentController.LoggedInTeacher.getWeeklyHours()));
         TotalStudentsLabel.setText(String.valueOf(FXMLDocumentController.LoggedInTeacher.getTotalStudents()));
         ChangingUsername.setText(FXMLDocumentController.LoggedInTeacher.getName());
         combo.setValue(FXMLDocumentController.LoggedInTeacher.getCourseStrings()[0]);
         combo.getItems().addAll(FXMLDocumentController.LoggedInTeacher.getCourseStrings());
-        StudentNameColumn.setCellValueFactory(new PropertyValueFactory<CourseMark, String>("StudentName"));
-        ActivitiesColumn.setCellValueFactory(new PropertyValueFactory<CourseMark, Integer>("activitiesGrade"));
-        MidtermColumn.setCellValueFactory(new PropertyValueFactory<CourseMark, Integer>("midtermGrade"));
-        FinalColumn.setCellValueFactory(new PropertyValueFactory<CourseMark, Integer>("finalGrade"));
+        StudentNameColumn.setCellValueFactory(new PropertyValueFactory<InProgressCourseMark, String>("StudentName"));
+        ActivitiesColumn.setCellValueFactory(new PropertyValueFactory<InProgressCourseMark, Integer>("activitiesGrade"));
+        MidtermColumn.setCellValueFactory(new PropertyValueFactory<InProgressCourseMark, Integer>("midtermGrade"));
+        FinalColumn.setCellValueFactory(new PropertyValueFactory<InProgressCourseMark, Integer>("finalGrade"));
         for(int i=0;i<FXMLDocumentController.LoggedInTeacher.getCourses().size();i++){
         if (combo.getValue().equals(FXMLDocumentController.LoggedInTeacher.getCourses().get(i).getCourseName())){
-        tableview.getItems().addAll(FXMLDocumentController.LoggedInTeacher.getCourses().get(i).getCourseMarks());
+        tableview.getItems().addAll(FXMLDocumentController.LoggedInTeacher.getCourses().get(i).getCourseMarks().stream().filter(p -> p instanceof InProgressCourseMark).map(p -> (InProgressCourseMark) p).collect(Collectors.toList()));
         }
               combo.getSelectionModel().selectedItemProperty().addListener(
                 new ChangeListener() {
@@ -169,7 +169,9 @@ public class TeacherController implements Initializable {
                 for (int i = 0; i < combo.getItems().size(); i++) {
                     if ((newValue).equals((Object)  FXMLDocumentController.LoggedInTeacher.getCourses().get(i).getCourseName())) {
                         tableview.getItems().clear();
-                        tableview.getItems().addAll(FXMLDocumentController.LoggedInTeacher.getCourses().get(i).getCourseMarks());
+                        /* TODO: only courses in progress will be shown in table view, if this is not what
+                            was intended either GUI or model has to be edited for that */
+                        tableview.getItems().addAll(FXMLDocumentController.LoggedInTeacher.getCourses().get(i).getCourseMarks().stream().filter(p -> p instanceof InProgressCourseMark).map(p -> (InProgressCourseMark) p).collect(Collectors.toList()));
                     }
                 }
             }

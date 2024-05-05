@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package project;
 
 import java.util.ArrayList;
@@ -9,17 +5,12 @@ import java.util.List;
 
 import project.courses.Course;
 import project.courses.Department;
-import project.courses.CourseMark;
 
-/**
- *
- * @author Fares Sultan
- */
-public class Teacher extends PersonalInformation {
+public class Teacher extends FacultyMember {
     
     private float salary;
     private int weeklyHours;
-    private List<Course> courses = new ArrayList<Course>();
+    private final List<Course> courses = new ArrayList<>();
 
     public Teacher(String name, int id, String password, Department department, float salary, int weeklyHours) {
         super(name, id, password, department);

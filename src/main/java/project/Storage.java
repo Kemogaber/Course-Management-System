@@ -55,7 +55,7 @@ public class Storage {
     public static Teacher teacherEPM = new Teacher("EPM Teacher", 3, "cse", epmDepartment, 1000, 30);
 
     // Array of registered users, students and teacher alike.
-    public static PersonalInformation users[] = new PersonalInformation[]{said, hesham, mohamed, teacherCSE, teacherECE, teacherEPM};
+    public static FacultyMember users[] = new FacultyMember[]{said, hesham, mohamed, teacherCSE, teacherECE, teacherEPM};
 
     public static Student students[] = new Student[]{said, hesham, mohamed};
     public static Teacher teachers[] = new Teacher[]{teacherCSE, teacherECE, teacherEPM};
@@ -65,14 +65,14 @@ public class Storage {
             said.addCourse(programming1Course);
             said.addCourse(embeddedCourse);
 
-            said.getCourseMark(programming1Course).finish();
-            said.getCourseMark(embeddedCourse).finish();
+            programming1Course.finish(said);
+            embeddedCourse.finish(said);
 
             kareem.addCourse(programming1Course);
             kareem.addCourse(embeddedCourse);
 
-            kareem.getCourseMark(programming1Course).finish();
-            kareem.getCourseMark(embeddedCourse).finish();
+            programming1Course.finish(kareem);
+            embeddedCourse.finish(kareem);
 
             teacherCSE.addCourse(programming1Course);
             teacherCSE.addCourse(embeddedCourse);

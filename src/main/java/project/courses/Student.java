@@ -1,30 +1,19 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package project.courses;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import project.PersonalInformation;
+import project.FacultyMember;
 
-/**
- *
- * @author Fares Sultan
- * Student class contians the student's info, and methods to add and drop project.courses.
- */
-public class Student extends PersonalInformation{
+public class Student extends FacultyMember {
     
     // Student's academic year Eg: Freshman, Sophomore, Junior.
     private String year;
 
     // Student's list of course marks.
     // Includes previously finished project.courses as well as currently enrolled project.courses.
-    private List<CourseMark> courseMarks = new ArrayList<CourseMark>();
+    private final List<CourseMark> courseMarks = new ArrayList<CourseMark>();
 
-    private List<CourseMark> finishedCourseMarks = new ArrayList<CourseMark>();
-    
     private List<Course> availableCourses = new ArrayList<Course>();
 
     
@@ -47,10 +36,6 @@ public class Student extends PersonalInformation{
 
     public List<CourseMark> getCourseMarks() {
         return courseMarks;
-    }
-
-    public List<CourseMark> getFinishedCourseMarks() {
-        return finishedCourseMarks;
     }
 
     public void displayAvailableCourses(){
@@ -88,21 +73,6 @@ public class Student extends PersonalInformation{
         }
         
         return courseMarksStrings;
-    }
-
-    public String[] getFinishedCourseStrings(){
-
-        String[] finishedCoursesString = new String[finishedCourseMarks.size()];
-
-        for (int i = 0; i < finishedCoursesString.length; i++) {
-            finishedCoursesString[i] = finishedCourseMarks.get(i).getCourse().getCourseName();
-        }
-        
-        return finishedCoursesString;
-    }
-
-    void finishCourseMark(CourseMark courseMark){
-        finishedCourseMarks.add(courseMark);
     }
 
     public String[] getAvailableCourseStrings(){
@@ -150,12 +120,12 @@ public class Student extends PersonalInformation{
         throw new Exception("Student hasn't registered this course.");
     }
 
-    public double getGPA(){
+    public double getPreciseGPA(){
         double points = 0;
         int creditHours = 0;
         for (CourseMark courseMark : courseMarks) {
-            if (courseMark.isFinished()) {
-                points += courseMark.getGradePoints() * courseMark.getCourse().getCH();
+            if (courseMark instanceof FinishedCourseMark) {
+                points += courseMark.getGPA().getValue() * courseMark.getCourse().getCH();
                 creditHours += courseMark.getCourse().getCH();
             }
         }
@@ -189,7 +159,7 @@ public class Student extends PersonalInformation{
             throw new Exception("Student cannot add a course from a different department.");
         }
         else {
-            courseMarks.add(new CourseMark(course, this));
+            courseMarks.add(new InProgressCourseMark(course, this));
             this.updateAvaialableCourses();
             course.addStudent(this);
         }
@@ -201,7 +171,7 @@ public class Student extends PersonalInformation{
         if(!this.hasCourse(course)){    // If course is not registered.
             throw new Exception("Student hasn't registered this course.");
         }
-        if (this.getCourseMark(course).isFinished()) {
+        if (this.getCourseMark(course) instanceof FinishedCourseMark) {
             throw new Exception("Course is already finished.");
         }
         

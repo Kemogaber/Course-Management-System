@@ -6,13 +6,12 @@ package project;
 
 import project.courses.Course;
 import project.courses.Department;
-
-/**
- *
- * @author Fares Sultan
- */
-
-public abstract class PersonalInformation {
+/*
+* This class holds information shared by any faculty member
+* like Students and Teachers
+*
+* */
+public abstract class FacultyMember {
 
     protected String name;
     protected int id;
@@ -22,11 +21,11 @@ public abstract class PersonalInformation {
     protected Department department;
     
 
-    public PersonalInformation() {
+    public FacultyMember() {
     }
 
     // Constructor to set the non-changeable information of the person
-    public PersonalInformation(String name, int id, String password, Department department) {
+    public FacultyMember(String name, int id, String password, Department department) {
         this.name = name;
         this.id = id;
         this.password = password;
@@ -73,7 +72,7 @@ public abstract class PersonalInformation {
 
     @Override
     public String toString() {
-        return "Name: " + name + "\nId: " + id + "\nPassword: " + password + "\nDeparetment" + department.getDepartementName();
+        return "Name: " + name + "\nId: " + id + "\nPassword: " + password + "\nDeparetment" + department.getDepartmentName();
     }
 
 }

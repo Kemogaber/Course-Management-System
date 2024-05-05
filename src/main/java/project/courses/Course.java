@@ -6,11 +6,11 @@ import java.util.List;
 import project.Teacher;
 
 public class Course {
-    private String courseName;
-    private Department department;
-    private String code;
-    private int CH;
-    private List<Student> students = new ArrayList<Student>();
+    private final String courseName;
+    private final Department department;
+    private final String code;
+    private final int CH;
+    private final List<Student> students = new ArrayList<>();
 
     // TODO: determine if this is needed.
     private Teacher teacher;
@@ -45,7 +45,7 @@ public class Course {
 
     // Returns the course marks for all the students in this course.
     public List<CourseMark> getCourseMarks() {
-        List<CourseMark> courseMarks = new ArrayList<CourseMark>();
+        List<CourseMark> courseMarks = new ArrayList<>();
 
         for (Student student : students) {
             try {
@@ -56,6 +56,21 @@ public class Course {
         }
 
         return courseMarks;
+    }
+
+    // Finishing a Course should be handled by the Course itself or Student
+    // This function finishes course a student has taken by replacing InProgressCourseMark with a FinishedCourseMark
+    public void finish(Student student) {
+        Student candidate = students.stream().filter(p -> p == student).findFirst().orElseThrow(RuntimeException::new);
+
+        try {
+            InProgressCourseMark inProgressCourseMark = (InProgressCourseMark) candidate.getCourseMark(this);
+            FinishedCourseMark finishedCourseMark = new FinishedCourseMark(inProgressCourseMark.course, inProgressCourseMark.student, inProgressCourseMark.getFinalGrade(), inProgressCourseMark.getMidtermGrade(), inProgressCourseMark.getActivitiesGrade());
+            candidate.getCourseMarks().remove(inProgressCourseMark);
+            candidate.getCourseMarks().add(finishedCourseMark);
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
     }
 
     // Add a student to Course.students

@@ -2,13 +2,15 @@ package project;
 
 import project.courses.Course;
 import project.courses.CourseMark;
-import project.courses.Student;
+import project.courses.InProgressCourseMark;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
+
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -139,7 +141,7 @@ public class DashboardController implements Initializable {
         FXMLDocumentController.LoggedInStudent.dropCourse(selecteditem);
         combo1.getItems().remove(selecteditem.getCourseName());
         combo1.setValue("");
-        TotalGpaBtn.setText(String.valueOf(FXMLDocumentController.LoggedInStudent.getGPA()));
+        TotalGpaBtn.setText(String.valueOf(FXMLDocumentController.LoggedInStudent.getPreciseGPA()));
         CHview.setText(String.valueOf(FXMLDocumentController.LoggedInStudent.getTotalCH()));
     }
 
@@ -155,7 +157,7 @@ public class DashboardController implements Initializable {
                 combo2.setValue("");
             }
         }
-        TotalGpaBtn.setText(String.valueOf(FXMLDocumentController.LoggedInStudent.getGPA()));
+        TotalGpaBtn.setText(String.valueOf(FXMLDocumentController.LoggedInStudent.getPreciseGPA()));
         CHview.setText(String.valueOf(FXMLDocumentController.LoggedInStudent.getTotalCH()));
 
     }
@@ -168,9 +170,9 @@ public class DashboardController implements Initializable {
         
         // Initialize available courses and empty courses.
         AvailableCourses = FXMLDocumentController.LoggedInStudent.getAvailableCourses();
-        FinishedCourses = FXMLDocumentController.LoggedInStudent.getCourseMarks();
+        FinishedCourses = FXMLDocumentController.LoggedInStudent.getCourseMarks().stream().dropWhile(p -> p instanceof InProgressCourseMark).collect(Collectors.toList());
         
-        if (FinishedCourses.size() == 0) {  // If no finished courses 
+        if (FinishedCourses.isEmpty()) {  // If no finished courses
             combo1.setValue("");            // Initialize the combo box to an empty string.
         }
         else {
@@ -179,7 +181,7 @@ public class DashboardController implements Initializable {
         }
         
 
-        if (AvailableCourses.size() == 0) {  // If no finished courses 
+        if (AvailableCourses.isEmpty()) {  // If no finished courses
             combo2.setValue("");             // Initialize the combo box to an empty string.
         }
         else {
@@ -190,8 +192,8 @@ public class DashboardController implements Initializable {
         for(int i=0;i<FXMLDocumentController.LoggedInStudent.getCourseMarks().size();i++){
             if (combo1.getValue().equals(FXMLDocumentController.LoggedInStudent.getCourseMarks().get(i).getCourse().getCourseName())){
                 CHBtn.setText(String.valueOf(FXMLDocumentController.LoggedInStudent.getCourseMarks().get(i).getCourse().getCH()));
-                GpaBtn.setText(String.valueOf(FXMLDocumentController.LoggedInStudent.getCourseMarks().get(i).getGradePoints()));
-                TotalGpaBtn.setText(String.format("%.2f",FXMLDocumentController.LoggedInStudent.getGPA()));
+                GpaBtn.setText(String.valueOf(FXMLDocumentController.LoggedInStudent.getCourseMarks().get(i).getGPA().getText()));
+                TotalGpaBtn.setText(String.format("%.2f",FXMLDocumentController.LoggedInStudent.getPreciseGPA()));
                 CHview.setText(String.valueOf(FXMLDocumentController.LoggedInStudent.getTotalCH()));
             } 
         }
@@ -207,7 +209,7 @@ public class DashboardController implements Initializable {
             public void changed(ObservableValue observable, Object oldValue, Object newValue) {
                 for (int i = 0; i < combo1.getItems().size(); i++) {
                     if ((newValue).equals((Object)  FXMLDocumentController.LoggedInStudent.getCourseMarks().get(i).getCourse().getCourseName())) {
-                        GpaBtn.setText(String.format("%.2f", FXMLDocumentController.LoggedInStudent.getCourseMarks().get(i).getGradePoints()));
+                        GpaBtn.setText(String.format("%.2f", FXMLDocumentController.LoggedInStudent.getCourseMarks().get(i).getGPA().getValue()));
                         CHBtn.setText(String.valueOf( FXMLDocumentController.LoggedInStudent.getCourseMarks().get(i).getCourse().getCH()));
                     }
                 }

@@ -4,19 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Department {
-    private String departementName;
-    private List<Course> courses = new ArrayList<Course>();
+    private final String departmentName;
+    private final List<Course> courses = new ArrayList<>();
 
-    public Department(String departementName){
-        this.departementName = departementName;
+    public Department(String departmentName){
+        this.departmentName = departmentName;
     }
 
     public List<Course> getCourses() {
         return courses;
     }
 
-    public String getDepartementName() {
-        return departementName;
+    public String getDepartmentName() {
+        return departmentName;
     }
 
     public void addCourse(Course course){
@@ -25,7 +25,7 @@ public class Department {
     
     @Override
     public String toString() {
-        return departementName;
+        return departmentName;
     }
 
 }

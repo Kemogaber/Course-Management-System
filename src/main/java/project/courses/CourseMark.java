@@ -1,99 +1,53 @@
 package project.courses;
 
-public class CourseMark {
+/*
+* Abstract Course Mark class that only defines the Course and Student
+* It implements GPAMarkable and SemesterMarkable
+* */
+abstract public class CourseMark implements SemesterMarkable, GPAMarkable  {
+    protected final Course course;
+    protected final Student student;
 
-    private Course course;
-    private int finalGrade = 0;
-    private int midtermGrade = 0;
-    private int activitiesGrade = 0;
-    private boolean isFinished = false;
-    private Student student;
-    private String studentName;
-
-    public CourseMark(Course course, Student student){
+    CourseMark(Course course, Student student) {
         this.course = course;
         this.student = student;
-        studentName = student.getName();
     }
 
-    public void setFinalGrade(int finalGrade) {
-        this.finalGrade = finalGrade;
-    }
+    @Override
+    public GPA getGPA() {
+        int totalMark = getFinalGrade() + getMidtermGrade() + getActivitiesGrade();
 
-    public int getFinalGrade() {
-        return finalGrade;
-    }
-
-    public void setMidtermGrade(int midtermGrade) {
-        this.midtermGrade = midtermGrade;
-    }
-
-    public int getMidtermGrade() {
-        return midtermGrade;
-    }
-
-    public void setActivitiesGrade(int activitiesGrade) {
-        this.activitiesGrade = activitiesGrade;
-    }
-
-    public int getActivitiesGrade() {
-        return activitiesGrade;
+        if (totalMark >= 97) {
+            return GPA.A_Plus;
+        } else if (totalMark >= 93) {
+            return GPA.A;
+        }else if (totalMark >= 89) {
+            return GPA.A_Minus;
+        } else if (totalMark >= 84) {
+            return GPA.B_Plus;
+        } else if (totalMark >= 80) {
+            return GPA.B;
+        } else if (totalMark >= 76) {
+            return GPA.B_Minus;
+        } else if (totalMark >= 73) {
+            return GPA.C_Plus;
+        } else if (totalMark >= 70) {
+            return GPA.C;
+        } else if (totalMark >= 67) {
+            return GPA.C_Minus;
+        } else if (totalMark >= 64) {
+            return GPA.D_Plus;
+        } else if (totalMark >= 60) {
+            return GPA.D;
+        }
+        return GPA.F;
     }
 
     public Student getStudent() {
         return student;
     }
 
-    public String getStudentName() {
-        return studentName;
-    }
-
-    // Finish a course and make it uneditable.
-    // To be used at the end of the semester.
-    public void finish(){
-        isFinished = true;
-        student.finishCourseMark(this);
-    }
-
-    public boolean isFinished() {
-        return isFinished;
-    }
-
     public Course getCourse() {
         return course;
     }
-
-    // TODO: Finish implementation in a cleaner way.
-    public double getGradePoints(){
-        int totalMark = finalGrade + midtermGrade + activitiesGrade;
-        if (totalMark >= 93) {
-            return 4.0;
-        }else if (totalMark >= 89) {
-            return  3.7;
-        } else if (totalMark >= 84) {
-            return 3.3;
-        } else if (totalMark >= 80) {
-            return 3.0;
-        } else if (totalMark >= 76) {
-            return 2.7;
-        } else if (totalMark >= 73) {
-            return 2.3;
-        } else if (totalMark >= 70) {
-            return 2.0;
-        } else if (totalMark >= 67) {
-            return 1.7;
-        } else if (totalMark >= 64) {
-            return 1.3;
-        } else if (totalMark >= 60) {
-            return 1.0;
-        }
-        return 0;
-    }
-
-    // TODO: Implement this.
-    // Calculates and returns the grade letter (Eg: A, B-, C+) for this courseMark.
-    public String getGradeLetter(){
-        return "A+";
-    }
-
 }

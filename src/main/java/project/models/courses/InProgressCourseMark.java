@@ -1,4 +1,6 @@
-package project.courses;
+package project.models.courses;
+
+import project.models.Student;
 
 /*
 * Encapsulates information about Course Mark for a Course in progress.

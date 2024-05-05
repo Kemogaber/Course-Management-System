@@ -1,4 +1,6 @@
-package project.courses;
+package project.models.courses;
+
+import project.models.Student;
 
 /*
 * Abstract Course Mark class that only defines the Course and Student

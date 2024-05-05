@@ -1,4 +1,4 @@
-package project.courses;
+package project.models.courses;
 
 public interface GPAMarkable {
     GPA getGPA();

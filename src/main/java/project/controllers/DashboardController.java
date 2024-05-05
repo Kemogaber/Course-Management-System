@@ -1,8 +1,8 @@
-package project;
+package project.controllers;
 
-import project.courses.Course;
-import project.courses.CourseMark;
-import project.courses.InProgressCourseMark;
+import project.models.courses.Course;
+import project.models.courses.CourseMark;
+import project.models.courses.InProgressCourseMark;
 
 import java.io.IOException;
 import java.net.URL;

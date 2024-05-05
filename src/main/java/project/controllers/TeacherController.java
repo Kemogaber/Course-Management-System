@@ -1,4 +1,4 @@
-package project;
+package project.controllers;
 
 
 import java.io.IOException;
@@ -26,8 +26,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import project.courses.CourseMark;
-import project.courses.InProgressCourseMark;
+import project.models.courses.InProgressCourseMark;
 
 public class TeacherController implements Initializable {
 

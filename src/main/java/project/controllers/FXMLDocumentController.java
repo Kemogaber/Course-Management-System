@@ -1,6 +1,8 @@
-package project;
+package project.controllers;
 
-import project.courses.Student;
+import project.data.Login;
+import project.models.Teacher;
+import project.models.Student;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;

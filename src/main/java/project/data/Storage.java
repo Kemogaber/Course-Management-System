@@ -1,8 +1,10 @@
-package project;
+package project.data;
 
-import project.courses.Course;
-import project.courses.Department;
-import project.courses.Student;
+import project.controllers.FacultyMember;
+import project.models.Teacher;
+import project.models.courses.Course;
+import project.models.courses.Department;
+import project.models.Student;
 
 public class Storage {
 

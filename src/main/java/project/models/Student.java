@@ -1,9 +1,10 @@
-package project.courses;
+package project.models;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import project.FacultyMember;
+import project.controllers.FacultyMember;
+import project.models.courses.*;
 
 public class Student extends FacultyMember {
     

@@ -1,4 +1,4 @@
-package project.courses;
+package project.models.courses;
 
 // To be implemented by CourseInProgress and PastCourse
 public interface SemesterMarkable {

@@ -1,4 +1,4 @@
-package project.courses;
+package project.models.courses;
 
 import java.util.ArrayList;
 import java.util.List;

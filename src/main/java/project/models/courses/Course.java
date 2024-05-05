@@ -1,9 +1,10 @@
-package project.courses;
+package project.models.courses;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import project.Teacher;
+import project.models.Student;
+import project.models.Teacher;
 
 public class Course {
     private final String courseName;
@@ -75,11 +76,11 @@ public class Course {
 
     // Add a student to Course.students
     // Visible only in project.project.courses
-    void addStudent(Student student){
+    public void addStudent(Student student){
         students.add(student);
     }
 
-    void removeStudent(Student student){
+    public void removeStudent(Student student){
         students.remove(student);
     }
 

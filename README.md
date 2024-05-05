@@ -3,3 +3,8 @@
 ```shell
 mvn clean javafx:run
 ```
+
+## Test using maven
+```shell
+mvn test
+```

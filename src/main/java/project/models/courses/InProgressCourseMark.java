@@ -19,6 +19,10 @@ public class InProgressCourseMark extends CourseMark {
         this.finalGrade = finalGrade;
     }
 
+    public String getStudentName(){
+        return student.getName();
+    }
+
     @Override
     public int getFinalGrade() {
         return finalGrade;

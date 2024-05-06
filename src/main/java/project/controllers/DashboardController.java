@@ -170,7 +170,7 @@ public class DashboardController implements Initializable {
         
         // Initialize available courses and empty courses.
         AvailableCourses = FXMLDocumentController.LoggedInStudent.getAvailableCourses();
-        FinishedCourses = FXMLDocumentController.LoggedInStudent.getCourseMarks().stream().dropWhile(p -> p instanceof InProgressCourseMark).collect(Collectors.toList());
+        FinishedCourses = FXMLDocumentController.LoggedInStudent.getCourseMarks();
         
         if (FinishedCourses.isEmpty()) {  // If no finished courses
             combo1.setValue("");            // Initialize the combo box to an empty string.
@@ -193,6 +193,7 @@ public class DashboardController implements Initializable {
             if (combo1.getValue().equals(FXMLDocumentController.LoggedInStudent.getCourseMarks().get(i).getCourse().getCourseName())){
                 CHBtn.setText(String.valueOf(FXMLDocumentController.LoggedInStudent.getCourseMarks().get(i).getCourse().getCH()));
                 GpaBtn.setText(String.valueOf(FXMLDocumentController.LoggedInStudent.getCourseMarks().get(i).getGPA().getText()));
+                // TODO handle exception
                 TotalGpaBtn.setText(String.format("%.2f",FXMLDocumentController.LoggedInStudent.getPreciseGPA()));
                 CHview.setText(String.valueOf(FXMLDocumentController.LoggedInStudent.getTotalCH()));
             } 
@@ -209,7 +210,7 @@ public class DashboardController implements Initializable {
             public void changed(ObservableValue observable, Object oldValue, Object newValue) {
                 for (int i = 0; i < combo1.getItems().size(); i++) {
                     if ((newValue).equals((Object)  FXMLDocumentController.LoggedInStudent.getCourseMarks().get(i).getCourse().getCourseName())) {
-                        GpaBtn.setText(String.format("%.2f", FXMLDocumentController.LoggedInStudent.getCourseMarks().get(i).getGPA().getValue()));
+                        GpaBtn.setText(FXMLDocumentController.LoggedInStudent.getCourseMarks().get(i).getGPA().getText());
                         CHBtn.setText(String.valueOf( FXMLDocumentController.LoggedInStudent.getCourseMarks().get(i).getCourse().getCH()));
                     }
                 }

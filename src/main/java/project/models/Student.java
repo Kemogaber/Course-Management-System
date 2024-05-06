@@ -120,7 +120,7 @@ public class Student extends FacultyMember {
 
         throw new Exception("Student hasn't registered this course.");
     }
-
+// TODO: Arithmetic exception. 
     public double getPreciseGPA(){
         double points = 0;
         int creditHours = 0;

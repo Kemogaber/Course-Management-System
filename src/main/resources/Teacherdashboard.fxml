@@ -137,7 +137,7 @@
 <!--                              <FontAwesomeIcon fill="#0598ff" glyphName="HOME" size="1.2em" text="" />-->
                            </graphic>
                         </Button>
-                        <Button fx:id="register" layoutX="17.0" layoutY="244.0" mnemonicParsing="false" onAction="#Switchform" prefHeight="30.0" prefWidth="180.0" style="-fx-background-color: #ffffff;" text="Register" textFill="#0598ff">
+                        <Button fx:id="register" layoutX="17.0" layoutY="244.0" mnemonicParsing="false" onAction="#Switchform" prefHeight="30.0" prefWidth="180.0" style="-fx-background-color: #ffffff;" text="Edit Marks" textFill="#0598ff">
                            <graphic>
                               <FontAwesomeIconView fill="#0598ff" glyphName="LIST" size="1.2em" text="" />
                            </graphic>

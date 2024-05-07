@@ -2,6 +2,7 @@ package project.controllers;
 
 import project.models.courses.Course;
 import project.models.courses.CourseMark;
+import project.models.courses.FinishedCourseMark;
 import project.models.courses.InProgressCourseMark;
 
 import java.io.IOException;
@@ -203,7 +204,8 @@ public class DashboardController implements Initializable {
         CHColumn.setCellValueFactory(new PropertyValueFactory<Course, Integer>("CH"));
         CodeColumn.setCellValueFactory(new PropertyValueFactory<Course, String>("code"));
 
-        CHview.setText("0");
+        CHview.setText(String.valueOf(FXMLDocumentController.LoggedInStudent.getTotalCH()));
+        tableview1.getItems().addAll(FXMLDocumentController.LoggedInStudent.getCourseMarks().stream().dropWhile(c -> c instanceof FinishedCourseMark).map(c -> c.getCourse()).collect(Collectors.toList()));
         combo1.getSelectionModel().selectedItemProperty().addListener(
                 new ChangeListener() {
             @Override

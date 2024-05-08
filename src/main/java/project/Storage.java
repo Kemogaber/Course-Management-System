@@ -60,6 +60,9 @@ public class Storage {
     public static Student students[] = new Student[]{said, hesham, mohamed};
     public static Teacher teachers[] = new Teacher[]{teacherCSE, teacherECE, teacherEPM};
 
+    /**
+     * 
+     */
     public static void updateSimulation(){
         try {
             said.addCourse(programming1Course);
@@ -77,7 +80,7 @@ public class Storage {
             teacherCSE.addCourse(programming1Course);
             teacherCSE.addCourse(embeddedCourse);
         } catch (Exception e) {
-            // TODO: handle exception
+            System.out.println(e.getMessage());
         }
         
     }

@@ -67,8 +67,8 @@ public class Storage {
             said.addCourse(programming1Course);
             said.addCourse(embeddedCourse);
 
-            programming1Course.finish(said);
-            embeddedCourse.finish(said);
+            /* programming1Course.finish(said);
+            embeddedCourse.finish(said); */
 
             kareem.addCourse(programming1Course);
             kareem.addCourse(embeddedCourse);

@@ -6,7 +6,7 @@ import project.models.Student;
 * Abstract Course Mark class that only defines the Course and Student
 * It implements GPAMarkable and SemesterMarkable
 * */
-abstract public class CourseMark implements SemesterMarkable, GPAMarkable  {
+abstract public class CourseMark implements SemesterMarkable, GPAMarkable, Comparable<CourseMark> {
     protected final Course course;
     protected final Student student;
 
@@ -51,5 +51,11 @@ abstract public class CourseMark implements SemesterMarkable, GPAMarkable  {
 
     public Course getCourse() {
         return course;
+    }
+
+    @Override
+    public int compareTo(CourseMark o) { /* Comparing method to be used to sort students enrolled in the course alphabetically*/
+        return this.getStudent().compareTo(o.getStudent());
+
     }
 }

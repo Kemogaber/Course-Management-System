@@ -1,12 +1,10 @@
 package project.models.courses;
-
 import java.util.ArrayList;
-import java.util.List;
-
+import java.util.*;
 import project.models.Student;
 import project.models.Teacher;
 
-public class Course {
+public class Course implements Comparable<Course>{
     private final String courseName;
     private final Department department;
     private final String code;
@@ -104,4 +102,13 @@ public class Course {
         return "Course: " + courseName + "\n" + code + "\n----------------";
     }
 
+    @Override
+    public int compareTo(Course t) {   // comapring courses by there names alphabically
+    
+       return this.getCourseName().compareTo(t.getCourseName()) ;
+                
+    }   
+    
 }
+
+

@@ -6,7 +6,7 @@ import java.util.List;
 import project.controllers.FacultyMember;
 import project.models.courses.*;
 
-public class Student extends FacultyMember {
+public class Student extends FacultyMember implements Comparable<Student> {
     
     // Student's academic year Eg: Freshman, Sophomore, Junior.
     private String year;
@@ -185,6 +185,14 @@ public class Student extends FacultyMember {
                 break;
             }
         }
+
+    }
+
+    @Override
+    public int compareTo(Student student) { /* Comparing method to be used to sort students alphabetically*/
+
+        return this.getName().compareTo(student.getName());
+
 
     }
 

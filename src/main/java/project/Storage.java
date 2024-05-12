@@ -21,13 +21,14 @@ public class Storage {
 
     public static Course embeddedCourse = new Course("Intro to Embedded Systems", cseDepartment, "CSE211", 3);
     public static Course programming2Course = new Course("Advanced Programming", cseDepartment, "CSE231", 3);
-    public static Course digitalCourse = new Course("Digital Circuits", eceDepartment, "ECE210", 3);
+    public static Course digitalCourse = new Course ( "Digital Circuits", eceDepartment, "ECE212", 3);
     public static Course commsCourse = new Course("Fundamentals of Communication", eceDepartment, "ECE214", 3);
     public static Course energyCourse = new Course("Energy and Renewables", epmDepartment, "EPM213", 3);
     public static Course circuits2Course = new Course("Circuits 2", epmDepartment, "EPM221", 4);
+    public static Course co Course= new Course("computer organization",cseDepartment,"CSE2213",3);
     
     // Array of project.courses to register.
-    public static Course[] newCourses = new Course[]{embeddedCourse, programming2Course, digitalCourse, commsCourse, energyCourse, circuits2Course};
+    public static Course[] newCourses = new Course[]{embeddedCourse, programming2Course, digitalCourse, commsCourse, energyCourse, circuits2Course,co Course};
 
     // Define some finished project.courses===================================================================
 
@@ -47,18 +48,18 @@ public class Storage {
     public static Student kareem = new Student("Kareem Gaber", 2101545, "kareem", "Junior", cseDepartment);
     public static Student hesham = new Student("Hesham Nabil", 2101000, "hesham", "Junior", eceDepartment);
     public static Student mohamed = new Student("Mohamed Awad", 2100500, "mohamed", "Junior", cseDepartment);
-
+    public static Student mahmoud = new Student("Mahmoud Essam", 2001393, "mahmoud", "Junior", cseDepartment);
     // Define some teachers=======================================================================================
 
     public static Teacher teacherCSE = new Teacher("CSE Teacher", 1, "cse", cseDepartment, 1000, 25);
     public static Teacher teacherECE = new Teacher("ECE Teacher", 2, "cse", eceDepartment, 1000, 40);
     public static Teacher teacherEPM = new Teacher("EPM Teacher", 3, "cse", epmDepartment, 1000, 30);
-
+    public static Teacher teacherCSE_2 = new Teacher("CSE Teacher_2", 4, "cse", cseDepartment, 1000, 20);
     // Array of registered users, students and teacher alike.
-    public static PersonalInformation users[] = new PersonalInformation[]{said, hesham, mohamed, teacherCSE, teacherECE, teacherEPM};
+    public static PersonalInformation users[] = new PersonalInformation[]{said, hesham, mohamed,mahmoud, teacherCSE,teacherCSE_2, teacherECE, teacherEPM};
 
-    public static Student students[] = new Student[]{said, hesham, mohamed};
-    public static Teacher teachers[] = new Teacher[]{teacherCSE, teacherECE, teacherEPM};
+    public static Student students[] = new Student[]{said, hesham, mohamed,mahmoud};
+    public static Teacher teachers[] = new Teacher[]{teacherCSE, teacherECE, teacherEPM,teacherCSE_2};
 
     /**
      * 

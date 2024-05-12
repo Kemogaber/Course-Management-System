@@ -59,7 +59,7 @@ public class Storage {
     // Array of registered users, students and teacher alike.
     public static FacultyMember users[] = new FacultyMember[]{said, hesham, mohamed, teacherCSE, teacherECE, teacherEPM};
 
-    public static Student students[] = new Student[]{said, hesham, mohamed};
+    public static Student students[] = new Student[]{said, hesham, mohamed, kareem};
     public static Teacher teachers[] = new Teacher[]{teacherCSE, teacherECE, teacherEPM};
 
     public static void updateSimulation(){
@@ -67,13 +67,13 @@ public class Storage {
             said.addCourse(programming1Course);
             said.addCourse(embeddedCourse);
 
-            /* programming1Course.finish(said);
-            embeddedCourse.finish(said); */
+            /* programming1Course.finish(said);*/
+            embeddedCourse.finish(said); 
 
             kareem.addCourse(programming1Course);
             kareem.addCourse(embeddedCourse);
 
-            programming1Course.finish(kareem);
+            /* programming1Course.finish(kareem); */
             embeddedCourse.finish(kareem);
 
             teacherCSE.addCourse(programming1Course);

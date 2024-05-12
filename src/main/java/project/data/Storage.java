@@ -47,6 +47,7 @@ public class Storage {
 
     public static Student said = new Student("Ahmed Said", 2101546, "said", "Junior", cseDepartment);
     public static Student kareem = new Student("Kareem Gaber", 2101545, "kareem", "Junior", cseDepartment);
+    public static Student fares = new Student("Fares Sultan", 2101545, "fares", "Junior", cseDepartment);
     public static Student hesham = new Student("Hesham Nabil", 2101000, "hesham", "Junior", eceDepartment);
     public static Student mohamed = new Student("Mohamed Awad", 2100500, "mohamed", "Junior", cseDepartment);
 
@@ -59,16 +60,13 @@ public class Storage {
     // Array of registered users, students and teacher alike.
     public static FacultyMember users[] = new FacultyMember[]{said, hesham, mohamed, teacherCSE, teacherECE, teacherEPM};
 
-    public static Student students[] = new Student[]{said, hesham, mohamed, kareem};
+    public static Student students[] = new Student[]{said, hesham, mohamed, kareem, fares};
     public static Teacher teachers[] = new Teacher[]{teacherCSE, teacherECE, teacherEPM};
 
     public static void updateSimulation(){
         try {
-            said.addCourse(programming1Course);
-            said.addCourse(embeddedCourse);
+            //fares.addCourse(programming1Course);
 
-            /* programming1Course.finish(said);*/
-            embeddedCourse.finish(said); 
 
             kareem.addCourse(programming1Course);
             kareem.addCourse(embeddedCourse);
@@ -76,8 +74,16 @@ public class Storage {
             /* programming1Course.finish(kareem); */
             embeddedCourse.finish(kareem);
 
-            teacherCSE.addCourse(programming1Course);
+            said.addCourse(programming1Course);
+            said.addCourse(embeddedCourse);
+
+            /* programming1Course.finish(said);*/
+            embeddedCourse.finish(said); 
+
             teacherCSE.addCourse(embeddedCourse);
+            teacherCSE.addCourse(programming1Course);
+            teacherCSE.addCourse(controlCourse);
+            teacherCSE.addCourse(programming2Course);
         } catch (Exception e) {
             // TODO: handle exception
         }

@@ -53,7 +53,7 @@ public class Course implements Comparable<Course>{
                 System.out.println(e.getMessage());
             }
         }
-
+        Collections.sort(courseMarks);
         return courseMarks;
     }
 

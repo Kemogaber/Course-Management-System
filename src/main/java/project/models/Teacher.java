@@ -1,6 +1,8 @@
 package project.models;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import project.controllers.FacultyMember;
@@ -36,6 +38,7 @@ public class Teacher extends FacultyMember {
     }
 
     public List<Course> getCourses() {
+        Collections.sort(courses);
         return courses;
     }
 
@@ -52,7 +55,7 @@ public class Teacher extends FacultyMember {
         String[] coursesStrings = new String[courses.size()];
 
         for (int i = 0; i < coursesStrings.length; i++) {
-            coursesStrings[i] = courses.get(i).getCourseName();
+            coursesStrings[i] = getCourses().get(i).getCourseName();
         }
         
         return coursesStrings;

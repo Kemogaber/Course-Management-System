@@ -9,7 +9,8 @@ import project.models.Student;
 
 public class Storage {
 
-    // Define departments=====================================================================
+    // Define
+    // departments=====================================================================
 
     public static Department cseDepartment = new Department("CSE");
     public static Department eceDepartment = new Department("ECE");
@@ -17,10 +18,11 @@ public class Storage {
     public static Department phmDepartment = new Department("PHM");
 
     // Array of available departments.
-    public static Department[] departements= new Department[]{cseDepartment, eceDepartment, epmDepartment, phmDepartment};
+    public static Department[] departements = new Department[] { cseDepartment, eceDepartment, epmDepartment,
+            phmDepartment };
 
-
-    // Define new Courses========================================================================
+    // Define new
+    // Courses========================================================================
 
     public static Course embeddedCourse = new Course("Intro to Embedded Systems", cseDepartment, "CSE211", 3);
     public static Course programming2Course = new Course("Advanced Programming", cseDepartment, "CSE231", 3);
@@ -29,11 +31,13 @@ public class Storage {
     public static Course energyCourse = new Course("Energy and Renewables", epmDepartment, "EPM213", 3);
     public static Course circuits2Course = new Course("Circuits 2", epmDepartment, "EPM221", 4);
     public static Course computerorganization = new Course("Computer Organization", cseDepartment, "CSE217", 3);
-    
-    // Array of project.courses to register.
-    public static Course[] newCourses = new Course[]{embeddedCourse, programming2Course, digitalCourse, commsCourse, energyCourse, circuits2Course};
 
-    // Define some finished project.courses===================================================================
+    // Array of project.courses to register.
+    public static Course[] newCourses = new Course[] { embeddedCourse, programming2Course, digitalCourse, commsCourse,
+            energyCourse, circuits2Course };
+
+    // Define some finished
+    // project.courses===================================================================
 
     public static Course programming1Course = new Course("Computer Programming", cseDepartment, "CSE112", 3);
     public static Course controlCourse = new Course("Control", cseDepartment, "CSE221", 4);
@@ -43,9 +47,11 @@ public class Storage {
     public static Course materialsCourse = new Course("Electrical Materials", epmDepartment, "EPM223", 2);
 
     // Array of finished project.courses.
-    public static Course[] finishedCourses = new Course[]{programming1Course, controlCourse, signalsCourse, electronicsCourse, measurementCourse, materialsCourse};
+    public static Course[] finishedCourses = new Course[] { programming1Course, controlCourse, signalsCourse,
+            electronicsCourse, measurementCourse, materialsCourse };
 
-    // Define some students====================================================================================
+    // Define some
+    // students====================================================================================
 
     public static Student said = new Student("Ahmed Said", 2101546, "said", "Junior", cseDepartment);
     public static Student kareem = new Student("Kareem Gaber", 2101545, "kareem", "Junior", cseDepartment);
@@ -53,27 +59,32 @@ public class Storage {
     public static Student hesham = new Student("Hesham Nabil", 2101000, "hesham", "Junior", eceDepartment);
     public static Student mohamed = new Student("Mohamed Awad", 2100500, "mohamed", "Junior", cseDepartment);
 
-    // Define some teachers=======================================================================================
+    // Define some
+    // teachers=======================================================================================
 
-    public static Teacher teacherCSE = new Teacher("CSE Teacher", 1, "cse", cseDepartment, 1000, 25);
+    public static Teacher teacher1 = new Teacher("Teacher1", 1, "cse", cseDepartment, 1000, 25);
     public static Teacher teacherECE = new Teacher("ECE Teacher", 2, "cse", eceDepartment, 1000, 40);
+    public static Teacher teacher2 = new Teacher("Teacher2", 1, "cse", cseDepartment, 1000, 25);
     public static Teacher teacherEPM = new Teacher("EPM Teacher", 3, "cse", epmDepartment, 1000, 30);
 
     // Array of registered users, students and teacher alike.
-    public static FacultyMember users[] = new FacultyMember[]{said, hesham, mohamed, teacherCSE, teacherECE, teacherEPM};
+    public static FacultyMember users[] = new FacultyMember[] { said, hesham, mohamed, teacher1, teacherECE,
+            teacherEPM };
 
-    public static Student students[] = new Student[]{said, hesham, mohamed, kareem, fares};
-    public static Teacher teachers[] = new Teacher[]{teacherCSE, teacherECE, teacherEPM};
+    public static Student students[] = new Student[] { said, hesham, mohamed, kareem, fares };
+    public static Teacher teachers[] = new Teacher[] { teacher1, teacherECE, teacherEPM, teacher2 };
 
-    public static void updateSimulation(){
+    public static void updateSimulation() {
         try {
-            //fares.addCourse(programming1Course);
+            
+            // =======================================================
+            // Said
+
             said.addCourse(embeddedCourse);
 
-           /* programming1Course.finish(said);*/
-            ((InProgressCourseMark)(said.getCourseMark(embeddedCourse))).setFinalGrade(59);
-            ((InProgressCourseMark)(said.getCourseMark(embeddedCourse))).setMidtermGrade(18);
-            ((InProgressCourseMark)(said.getCourseMark(embeddedCourse))).setActivitiesGrade(15);
+            ((InProgressCourseMark) (said.getCourseMark(embeddedCourse))).setFinalGrade(35);
+            ((InProgressCourseMark) (said.getCourseMark(embeddedCourse))).setMidtermGrade(15);
+            ((InProgressCourseMark) (said.getCourseMark(embeddedCourse))).setActivitiesGrade(17);
             embeddedCourse.finish(said);
             said.addCourse(programming1Course);
 
@@ -83,12 +94,11 @@ public class Storage {
              ((InProgressCourseMark)(said.getCourseMark(programming1Course))).setActivitiesGrade(13);
              programming1Course.finish(said);
              said.addCourse(computerorganization);
-             ((InProgressCourseMark)(said.getCourseMark(computerorganization))).setFinalGrade(49);
-             ((InProgressCourseMark)(said.getCourseMark(computerorganization))).setMidtermGrade(18);
-             ((InProgressCourseMark)(said.getCourseMark(computerorganization))).setActivitiesGrade(9);
-             computerorganization.finish(said);
 
-              fares.addCourse(embeddedCourse);
+
+             fares.addCourse(embeddedCourse);
+             /* prod.addCourse(embeddedCourse);
+gramming1Course.finish(said);*/
               ((InProgressCourseMark)(fares.getCourseMark(embeddedCourse))).setFinalGrade(59);
               ((InProgressCourseMark)(fares.getCourseMark(embeddedCourse))).setMidtermGrade(18);
               ((InProgressCourseMark)(fares.getCourseMark(embeddedCourse))).setActivitiesGrade(15);
@@ -101,37 +111,11 @@ public class Storage {
                ((InProgressCourseMark)(fares.getCourseMark(programming1Course))).setActivitiesGrade(13);
                programming1Course.finish(fares);
                fares.addCourse(computerorganization );
-               ((InProgressCourseMark)(fares.getCourseMark(computerorganization))).setFinalGrade(49);
-               ((InProgressCourseMark)(fares.getCourseMark(computerorganization))).setMidtermGrade(15);
-               ((InProgressCourseMark)(fares.getCourseMark(computerorganization))).setActivitiesGrade(9);
-               computerorganization.finish(fares);
-
-            //////
-            kareem.addCourse(embeddedCourse);
-            ((InProgressCourseMark)(fares.getCourseMark(embeddedCourse))).setFinalGrade(59);
-            ((InProgressCourseMark)(fares.getCourseMark(embeddedCourse))).setMidtermGrade(18);
-            ((InProgressCourseMark)(fares.getCourseMark(embeddedCourse))).setActivitiesGrade(15);
-            embeddedCourse.finish(kareem);
-            kareem.addCourse(programming1Course);
-
-            
-             ((InProgressCourseMark)(kareem.getCourseMark(programming1Course))).setFinalGrade(49);
-             ((InProgressCourseMark)(kareem.getCourseMark(programming1Course))).setMidtermGrade(18);
-             ((InProgressCourseMark)(kareem.getCourseMark(programming1Course))).setActivitiesGrade(13);
-             programming1Course.finish(kareem);
-             kareem.addCourse(computerorganization );
-             ((InProgressCourseMark)(kareem.getCourseMark(computerorganization))).setFinalGrade(49);
-             ((InProgressCourseMark)(kareem.getCourseMark(computerorganization))).setMidtermGrade(17);
-             ((InProgressCourseMark)(kareem.getCourseMark(computerorganization))).setActivitiesGrade(20);
-             computerorganization.finish(kareem);
-             
-
-
 
         } catch (Exception e) {
             // TODO: handle exception
         }
-        
+
     }
 
 }

@@ -88,29 +88,51 @@ public class Storage {
             embeddedCourse.finish(said);
             said.addCourse(programming1Course);
 
-            /* programming1Course.finish(said);*/
-             ((InProgressCourseMark)(said.getCourseMark(programming1Course))).setFinalGrade(49);
-             ((InProgressCourseMark)(said.getCourseMark(programming1Course))).setMidtermGrade(18);
-             ((InProgressCourseMark)(said.getCourseMark(programming1Course))).setActivitiesGrade(13);
-             programming1Course.finish(said);
-             said.addCourse(computerorganization);
+            ((InProgressCourseMark) (said.getCourseMark(programming1Course))).setFinalGrade(40);
+            ((InProgressCourseMark) (said.getCourseMark(programming1Course))).setMidtermGrade(15);
+            ((InProgressCourseMark) (said.getCourseMark(programming1Course))).setActivitiesGrade(18);
+            programming1Course.finish(said);
+            said.addCourse(computerorganization);
 
+            // =======================================================
+            // Fares
 
-             fares.addCourse(embeddedCourse);
-             /* prod.addCourse(embeddedCourse);
-gramming1Course.finish(said);*/
-              ((InProgressCourseMark)(fares.getCourseMark(embeddedCourse))).setFinalGrade(59);
-              ((InProgressCourseMark)(fares.getCourseMark(embeddedCourse))).setMidtermGrade(18);
-              ((InProgressCourseMark)(fares.getCourseMark(embeddedCourse))).setActivitiesGrade(15);
-              embeddedCourse.finish(fares);
-              fares.addCourse(programming1Course);
-  
-              /* programming1Course.finish(said);*/
-               ((InProgressCourseMark)(fares.getCourseMark(programming1Course))).setFinalGrade(49);
-               ((InProgressCourseMark)(fares.getCourseMark(programming1Course))).setMidtermGrade(18);
-               ((InProgressCourseMark)(fares.getCourseMark(programming1Course))).setActivitiesGrade(13);
-               programming1Course.finish(fares);
-               fares.addCourse(computerorganization );
+            fares.addCourse(embeddedCourse);
+            ((InProgressCourseMark) (fares.getCourseMark(embeddedCourse))).setFinalGrade(59);
+            ((InProgressCourseMark) (fares.getCourseMark(embeddedCourse))).setMidtermGrade(18);
+            ((InProgressCourseMark) (fares.getCourseMark(embeddedCourse))).setActivitiesGrade(15);
+            embeddedCourse.finish(fares);
+            fares.addCourse(programming1Course);
+
+            /* programming1Course.finish(said); */
+            ((InProgressCourseMark) (fares.getCourseMark(programming1Course))).setFinalGrade(49);
+            ((InProgressCourseMark) (fares.getCourseMark(programming1Course))).setMidtermGrade(18);
+            ((InProgressCourseMark) (fares.getCourseMark(programming1Course))).setActivitiesGrade(13);
+            programming1Course.finish(fares);
+            fares.addCourse(computerorganization);
+
+            // =======================================================
+            // Kareem
+
+            kareem.addCourse(embeddedCourse);
+            ((InProgressCourseMark) (kareem.getCourseMark(embeddedCourse))).setFinalGrade(48);
+            ((InProgressCourseMark) (kareem.getCourseMark(embeddedCourse))).setMidtermGrade(20);
+            ((InProgressCourseMark) (kareem.getCourseMark(embeddedCourse))).setActivitiesGrade(10);
+            embeddedCourse.finish(kareem);
+            kareem.addCourse(programming1Course);
+
+            /* programming1Course.finish(said); */
+            ((InProgressCourseMark) (kareem.getCourseMark(programming1Course))).setFinalGrade(60);
+            ((InProgressCourseMark) (kareem.getCourseMark(programming1Course))).setMidtermGrade(20);
+            ((InProgressCourseMark) (kareem.getCourseMark(programming1Course))).setActivitiesGrade(18);
+            programming1Course.finish(kareem);
+            kareem.addCourse(computerorganization);
+
+            teacher1.addCourse(programming1Course);
+            teacher1.addCourse(computerorganization);
+
+            teacher2.addCourse(programming2Course);
+            teacher2.addCourse(controlCourse);
 
         } catch (Exception e) {
             // TODO: handle exception

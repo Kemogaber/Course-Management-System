@@ -139,7 +139,7 @@ public class DashboardController implements Initializable {
         FXMLDocumentController.LoggedInStudent.dropCourse(selecteditem);
         combo1.getItems().remove(selecteditem.getCourseName());
         combo1.setValue("");
-        TotalGpaBtn.setText(String.valueOf(FXMLDocumentController.LoggedInStudent.getPreciseGPA()));
+        TotalGpaBtn.setText(String.format("%.2f",FXMLDocumentController.LoggedInStudent.getPreciseGPA()));
         CHview.setText(String.valueOf(FXMLDocumentController.LoggedInStudent.getTotalCH()));
     }
 
@@ -190,7 +190,7 @@ public class DashboardController implements Initializable {
         for(int i=0;i<FXMLDocumentController.LoggedInStudent.getCourseMarks().size();i++){
             if (combo1.getValue().equals(FXMLDocumentController.LoggedInStudent.getCourseMarks().get(i).getCourse().getCourseName())){
                 CHBtn.setText(String.valueOf(FXMLDocumentController.LoggedInStudent.getCourseMarks().get(i).getCourse().getCH()));
-                GpaBtn.setText(String.valueOf(FXMLDocumentController.LoggedInStudent.getCourseMarks().get(i).getGPA().getText()));
+                GpaBtn.setText(String.format("%.2f",FXMLDocumentController.LoggedInStudent.getCourseMarks().get(i).getGPA().getValue()));
                 // TODO handle exception
                 TotalGpaBtn.setText(String.format("%.2f",FXMLDocumentController.LoggedInStudent.getPreciseGPA()));
                 CHview.setText(String.valueOf(FXMLDocumentController.LoggedInStudent.getTotalCH()));

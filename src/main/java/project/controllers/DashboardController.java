@@ -155,7 +155,7 @@ public class DashboardController implements Initializable {
                 combo2.setValue("");
             }
         }
-        TotalGpaBtn.setText(String.valueOf(FXMLDocumentController.LoggedInStudent.getPreciseGPA()));
+        TotalGpaBtn.setText(String.format("%.2f",FXMLDocumentController.LoggedInStudent.getPreciseGPA()));
         CHview.setText(String.valueOf(FXMLDocumentController.LoggedInStudent.getTotalCH()));
 
     }

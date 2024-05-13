@@ -62,9 +62,9 @@ public class Storage {
     // Define some
     // teachers=======================================================================================
 
-    public static Teacher teacher1 = new Teacher("Teacher1", 1, "cse", cseDepartment, 1000, 25);
-    public static Teacher teacherECE = new Teacher("ECE Teacher", 2, "cse", eceDepartment, 1000, 40);
-    public static Teacher teacher2 = new Teacher("Teacher2", 1, "cse", cseDepartment, 1000, 25);
+    public static Teacher teacher1 = new Teacher("Teacher Mohamed", 1, "mohamed", cseDepartment, 13000, 25);
+    public static Teacher teacherECE = new Teacher("Teacherx", 2, "cse", eceDepartment, 1000, 40);
+    public static Teacher teacher2 = new Teacher("Teacher Sara", 1, "sara", cseDepartment, 5400, 25);
     public static Teacher teacherEPM = new Teacher("EPM Teacher", 3, "cse", epmDepartment, 1000, 30);
 
     // Array of registered users, students and teacher alike.
@@ -93,6 +93,8 @@ public class Storage {
             ((InProgressCourseMark) (said.getCourseMark(programming1Course))).setActivitiesGrade(18);
             programming1Course.finish(said);
             said.addCourse(computerorganization);
+            said.addCourse(controlCourse);
+            said.addCourse(programming2Course);
 
             // =======================================================
             // Fares
@@ -110,6 +112,8 @@ public class Storage {
             ((InProgressCourseMark) (fares.getCourseMark(programming1Course))).setActivitiesGrade(13);
             programming1Course.finish(fares);
             fares.addCourse(computerorganization);
+            fares.addCourse(controlCourse);
+            fares.addCourse(programming2Course);
 
             // =======================================================
             // Kareem
@@ -119,14 +123,16 @@ public class Storage {
             ((InProgressCourseMark) (kareem.getCourseMark(embeddedCourse))).setMidtermGrade(20);
             ((InProgressCourseMark) (kareem.getCourseMark(embeddedCourse))).setActivitiesGrade(10);
             embeddedCourse.finish(kareem);
-            kareem.addCourse(programming1Course);
+            kareem.addCourse(programming2Course);
 
             /* programming1Course.finish(said); */
-            ((InProgressCourseMark) (kareem.getCourseMark(programming1Course))).setFinalGrade(60);
-            ((InProgressCourseMark) (kareem.getCourseMark(programming1Course))).setMidtermGrade(20);
-            ((InProgressCourseMark) (kareem.getCourseMark(programming1Course))).setActivitiesGrade(18);
-            programming1Course.finish(kareem);
+            ((InProgressCourseMark) (kareem.getCourseMark(programming2Course))).setFinalGrade(60);
+            ((InProgressCourseMark) (kareem.getCourseMark(programming2Course))).setMidtermGrade(20);
+            ((InProgressCourseMark) (kareem.getCourseMark(programming2Course))).setActivitiesGrade(18);
+            programming2Course.finish(kareem);
             kareem.addCourse(computerorganization);
+            kareem.addCourse(controlCourse);
+            kareem.addCourse(programming1Course);
 
             teacher1.addCourse(programming1Course);
             teacher1.addCourse(computerorganization);

@@ -83,11 +83,12 @@ public class Storage {
              ((InProgressCourseMark)(said.getCourseMark(programming1Course))).setActivitiesGrade(13);
              programming1Course.finish(said);
              said.addCourse(computerorganization);
+             ((InProgressCourseMark)(said.getCourseMark(computerorganization))).setFinalGrade(49);
+             ((InProgressCourseMark)(said.getCourseMark(computerorganization))).setMidtermGrade(18);
+             ((InProgressCourseMark)(said.getCourseMark(computerorganization))).setActivitiesGrade(9);
+             computerorganization.finish(said);
 
-
-             fares.addCourse(embeddedCourse);
-             /* prod.addCourse(embeddedCourse);
-gramming1Course.finish(said);*/
+              fares.addCourse(embeddedCourse);
               ((InProgressCourseMark)(fares.getCourseMark(embeddedCourse))).setFinalGrade(59);
               ((InProgressCourseMark)(fares.getCourseMark(embeddedCourse))).setMidtermGrade(18);
               ((InProgressCourseMark)(fares.getCourseMark(embeddedCourse))).setActivitiesGrade(15);
@@ -100,6 +101,32 @@ gramming1Course.finish(said);*/
                ((InProgressCourseMark)(fares.getCourseMark(programming1Course))).setActivitiesGrade(13);
                programming1Course.finish(fares);
                fares.addCourse(computerorganization );
+               ((InProgressCourseMark)(fares.getCourseMark(computerorganization))).setFinalGrade(49);
+               ((InProgressCourseMark)(fares.getCourseMark(computerorganization))).setMidtermGrade(15);
+               ((InProgressCourseMark)(fares.getCourseMark(computerorganization))).setActivitiesGrade(9);
+               computerorganization.finish(fares);
+
+            //////
+            kareem.addCourse(embeddedCourse);
+            ((InProgressCourseMark)(fares.getCourseMark(embeddedCourse))).setFinalGrade(59);
+            ((InProgressCourseMark)(fares.getCourseMark(embeddedCourse))).setMidtermGrade(18);
+            ((InProgressCourseMark)(fares.getCourseMark(embeddedCourse))).setActivitiesGrade(15);
+            embeddedCourse.finish(kareem);
+            kareem.addCourse(programming1Course);
+
+            
+             ((InProgressCourseMark)(kareem.getCourseMark(programming1Course))).setFinalGrade(49);
+             ((InProgressCourseMark)(kareem.getCourseMark(programming1Course))).setMidtermGrade(18);
+             ((InProgressCourseMark)(kareem.getCourseMark(programming1Course))).setActivitiesGrade(13);
+             programming1Course.finish(kareem);
+             kareem.addCourse(computerorganization );
+             ((InProgressCourseMark)(kareem.getCourseMark(computerorganization))).setFinalGrade(49);
+             ((InProgressCourseMark)(kareem.getCourseMark(computerorganization))).setMidtermGrade(17);
+             ((InProgressCourseMark)(kareem.getCourseMark(computerorganization))).setActivitiesGrade(20);
+             computerorganization.finish(kareem);
+             
+
+
 
         } catch (Exception e) {
             // TODO: handle exception

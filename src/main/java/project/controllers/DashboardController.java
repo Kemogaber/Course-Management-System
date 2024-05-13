@@ -94,9 +94,6 @@ public class DashboardController implements Initializable {
     static List<Course> AvailableCourses;
     static List<CourseMark> FinishedCourses;
 
-    // TODO: REMOVE THIS.
-    //static Student LoggedInStudent;
-
     @FXML
     void Closewind(ActionEvent event) {
         close.getScene().getWindow().hide();

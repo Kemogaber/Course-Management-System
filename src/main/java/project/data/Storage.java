@@ -4,6 +4,7 @@ import project.controllers.FacultyMember;
 import project.models.Teacher;
 import project.models.courses.Course;
 import project.models.courses.Department;
+import project.models.courses.InProgressCourseMark;
 import project.models.Student;
 
 public class Storage {
@@ -71,13 +72,16 @@ public class Storage {
             kareem.addCourse(programming1Course);
             kareem.addCourse(embeddedCourse);
 
-            /* programming1Course.finish(kareem); */
+            /* programming1Course.finish(kareem);*/
             embeddedCourse.finish(kareem);
 
             said.addCourse(programming1Course);
             said.addCourse(embeddedCourse);
 
             /* programming1Course.finish(said);*/
+            ((InProgressCourseMark)(said.getCourseMark(embeddedCourse))).setFinalGrade(59);
+            ((InProgressCourseMark)(said.getCourseMark(embeddedCourse))).setMidtermGrade(18);
+            ((InProgressCourseMark)(said.getCourseMark(embeddedCourse))).setActivitiesGrade(15);
             embeddedCourse.finish(said); 
 
             teacherCSE.addCourse(embeddedCourse);

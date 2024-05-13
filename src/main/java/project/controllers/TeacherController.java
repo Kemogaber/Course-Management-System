@@ -150,7 +150,7 @@ public class TeacherController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        SalaryLabel.setText(String.format("%.2f", FXMLDocumentController.LoggedInTeacher.getSalary()));
+        SalaryLabel.setText(String.format("%.2f$", FXMLDocumentController.LoggedInTeacher.getSalary()));
         DepartmentLabel.setText(FXMLDocumentController.LoggedInTeacher.getDepartment().getDepartmentName());
         WeeklyHoursLabel.setText(String.valueOf(FXMLDocumentController.LoggedInTeacher.getWeeklyHours()));
         TotalStudentsLabel.setText(String.valueOf(FXMLDocumentController.LoggedInTeacher.getTotalStudents()));

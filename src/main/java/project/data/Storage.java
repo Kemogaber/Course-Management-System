@@ -28,6 +28,7 @@ public class Storage {
     public static Course commsCourse = new Course("Fundamentals of Communication", eceDepartment, "ECE214", 3);
     public static Course energyCourse = new Course("Energy and Renewables", epmDepartment, "EPM213", 3);
     public static Course circuits2Course = new Course("Circuits 2", epmDepartment, "EPM221", 4);
+    public static Course computerorganization = new Course("Computer Organization", cseDepartment, "CSE217", 3);
     
     // Array of project.courses to register.
     public static Course[] newCourses = new Course[]{embeddedCourse, programming2Course, digitalCourse, commsCourse, energyCourse, circuits2Course};
@@ -67,27 +68,39 @@ public class Storage {
     public static void updateSimulation(){
         try {
             //fares.addCourse(programming1Course);
-
-
-            kareem.addCourse(programming1Course);
-            kareem.addCourse(embeddedCourse);
-
-            /* programming1Course.finish(kareem);*/
-            embeddedCourse.finish(kareem);
-
-            said.addCourse(programming1Course);
             said.addCourse(embeddedCourse);
 
-            /* programming1Course.finish(said);*/
+           /* programming1Course.finish(said);*/
             ((InProgressCourseMark)(said.getCourseMark(embeddedCourse))).setFinalGrade(59);
             ((InProgressCourseMark)(said.getCourseMark(embeddedCourse))).setMidtermGrade(18);
             ((InProgressCourseMark)(said.getCourseMark(embeddedCourse))).setActivitiesGrade(15);
-            embeddedCourse.finish(said); 
+            embeddedCourse.finish(said);
+            said.addCourse(programming1Course);
 
-            teacherCSE.addCourse(embeddedCourse);
-            teacherCSE.addCourse(programming1Course);
-            teacherCSE.addCourse(controlCourse);
-            teacherCSE.addCourse(programming2Course);
+            /* programming1Course.finish(said);*/
+             ((InProgressCourseMark)(said.getCourseMark(programming1Course))).setFinalGrade(49);
+             ((InProgressCourseMark)(said.getCourseMark(programming1Course))).setMidtermGrade(18);
+             ((InProgressCourseMark)(said.getCourseMark(programming1Course))).setActivitiesGrade(13);
+             programming1Course.finish(said);
+             said.addCourse(computerorganization);
+
+
+             fares.addCourse(embeddedCourse);
+             /* prod.addCourse(embeddedCourse);
+gramming1Course.finish(said);*/
+              ((InProgressCourseMark)(fares.getCourseMark(embeddedCourse))).setFinalGrade(59);
+              ((InProgressCourseMark)(fares.getCourseMark(embeddedCourse))).setMidtermGrade(18);
+              ((InProgressCourseMark)(fares.getCourseMark(embeddedCourse))).setActivitiesGrade(15);
+              embeddedCourse.finish(fares);
+              fares.addCourse(programming1Course);
+  
+              /* programming1Course.finish(said);*/
+               ((InProgressCourseMark)(fares.getCourseMark(programming1Course))).setFinalGrade(49);
+               ((InProgressCourseMark)(fares.getCourseMark(programming1Course))).setMidtermGrade(18);
+               ((InProgressCourseMark)(fares.getCourseMark(programming1Course))).setActivitiesGrade(13);
+               programming1Course.finish(fares);
+               fares.addCourse(computerorganization );
+
         } catch (Exception e) {
             // TODO: handle exception
         }
